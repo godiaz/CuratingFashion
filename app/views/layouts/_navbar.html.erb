@@ -12,18 +12,21 @@
     <%# unless (params[:controller] == 'pages' && params[:action] == 'home') || devise_controller? %>
       <%= form_tag items_path, method: :get, class: "form-inline" do %>
       <div class="search-bar-in-nav">
-        <div class="what--item">
-          <%= text_field_tag :query, params[:query], class: "navbar-form-control" %>
+
+        <div class="navbar-search-box">
+          <%= text_field_tag :query, params[:query], placeholder: 'Search', class: "navbar-form-control" %>
           <div class="search-icon">
             <i class="fas fa-search"></i>
           </div>
         </div>
-        <div>
-          <%= text_field_tag :place, params[:place], class: "navbar-form-control" %>
-          <div class="search-icon">
+
+        <div class="navbar-location-box">
+          <%= text_field_tag :place, params[:place], placeholder: 'Where?', class: "navbar-form-control" %>
+          <div class="location-icon">
             <i class="fas fa-map-pin"></i>
           </div>
         </div>
+
       </div>
         <input type="hidden" name="location" value="<%= @location&.empty? ? 'London' : @location %>">
         <%= submit_tag :submit, class: "hidden" %>
@@ -31,7 +34,7 @@
     </div>
       <div class= "clear-button">
         <% if @show_clear %>
-          <%= link_to "X", items_path %>
+          <%= link_to "", items_path %>
         <% end %>
       </div>
   </div>
