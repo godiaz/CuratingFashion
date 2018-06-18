@@ -9,8 +9,7 @@
 
 .navbar-ufo {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  // background: #FDFFF9;
-  background: #2F3030;
+  background: #00060C;
   transition: all 0.3s ease;
   height: 80px;
   padding: 0px 30px;
@@ -49,29 +48,33 @@
 
 /* Navbar link */
 .navbar-ufo-link {
-  color: #616668;
+  color: #C9C9C9;
+  opacity: 0.8;
   font-size: 12px;
-  padding-top: 40px;
+  padding-top: 30px;
   padding-left: 10px;
-  padding-right: 10px;
+  padding-right: 15px;
   padding-bottom: 23px;
   border-bottom: solid 0.1px transparent;
-  transition: color 0.4s ease-in-out;
+  font-family: 'Heebo', sans-serif;
+  font-weight: lighter;
 }
 .navbar-ufo-link:hover {
   color: #dddddd;
+  transition: color 0.4s ease-in-out;
+  opacity: 1.0;
   text-decoration: none;
-  border-bottom: solid 1.5px #9595a0;
+  //border-bottom: solid 1.5px #9595a0;
   display: inline;
-  border-color: #FD9AB9;
+  //border-color: #FD9AB9;
 }
 
 .navbar-ufo-link:active {
   color: #dddddd;
   text-decoration: none;
-  border-bottom: solid 1.5px #9595a0;
+  //border-bottom: solid 1.5px #9595a0;
   display: inline;
-  border-color: #FD9AB9;
+  //border-color: #FD9AB9;
 }
 
 .navbar-ufo-link:visited {
@@ -84,12 +87,12 @@
   margin-top: 15px;
   box-shadow: 1px 1px 3px #616667;;
   border-color: #616667;
-  background-color: #2f3030;
+  background-color: #00060C;
 }
 .navbar-ufo-dropdown-menu li > a {
   transition: color 0.3s ease;
   font-weight: lighter !important;
-  color: #999999 !important;
+  color: #C9C9C9;
   font-size: 15px !important;
   line-height: 22px !important;
   padding: 10px 20px;
@@ -97,7 +100,7 @@
 }
 .navbar-ufo-dropdown-menu li > a:hover {
   background: transparent !important;
-  color: #dddddd !important;
+  color: white !important;
 }
 
 .navbar-ufo-dropdown-menu:before {
@@ -107,7 +110,7 @@
   position: absolute;
   right: 10px;
   top: -6px;
-  background-color: #2f3030;
+  background-color: #00060C;
   transform: rotate(45deg);
   border-left: 1px solid #616667;
   border-top: 1px solid #616667;
@@ -121,7 +124,7 @@
 .ufo-logo {
   position: absolute;
   bottom: 10px;
-  left: 15px;
+  left: 550px;
   margin-right: 5px;
 }
 
@@ -133,6 +136,7 @@
   margin-left: 0px;
   width: 240px;
   font-size: 12px;
+
 }
 
 .navbar-search {
@@ -140,46 +144,58 @@
 }
 
 .search-icon{
-  color: gray;
+  color: #C9C9C9;
 }
 
 .navbar-form-control:focus {
   outline: none !important;
   box-shadow: none;
   border-color: transparent;
-  border-bottom: 1px solid #616667;
+  //border-bottom: 1px solid #616667;
 }
 
 .navbar-form-control {
   border-bottom: 1px solid #fff9;
-  color: #fd9ab9;
-  font-size: 14px;
+  color: #C9C9C9;
+  font-size: 11px;
+  letter-spacing: 2px;
   background-color: transparent;
   border-radius: 0;
   border: none;
-  border-bottom: 1px solid #616667;
-  color: #fd9ab9;
-  width: 250px;
-  padding-left: 22px;
-  margin-top: 15px;
-  margin-right: 20px;
+  width: 150px;
+  margin: 20px 20px 10px 2px;
   font-family: 'Heebo', sans-serif;
   font-weight: lighter;
 
 }
 
-.what-item{
-  position: relative;
-}
-
 .search-icon{
   position: absolute;
-  color: #616667;
-  top: 32px;
+  color: #C9C9C9;
+  top: 15px;
+  left: -20px;
+}
+
+.location-icon{
+  position: absolute;
+  color: #C9C9C9;
+  top: 15px;
+  left: -15px;
 }
 
 .search-bar-in-nav{
   display: flex;
 }
+
+.navbar-search-box{
+	display: flex;
+	position: relative
+}
+
+.navbar-location-box{
+	display: flex;
+	position: relative
+}
+
 
 //

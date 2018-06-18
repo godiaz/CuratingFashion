@@ -1,12 +1,11 @@
 .footer {
-  background: #FDFFF9;
-  background: #2F3030;
+  background: #00060C;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100px;
   padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
+  color: #EDEDED;
   width: 100%;
   border-top: solid;
   border-width: thin;
@@ -24,9 +23,8 @@
   margin-top: 10px;
 }
 .footer-links a {
-  // color: black;
-  color: #fdfff9;
-  opacity: 0.15;
+  color: #EDEDED;
+  opacity: 0.8;
   text-decoration: none;
   font-size: 10px;
   padding: 0px 10px;
