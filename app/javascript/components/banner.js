@@ -4,11 +4,11 @@ function loadDynamicBannerText() {
   const banner = document.getElementById('banner-typed-text')
   if (banner) {
     new Typed('#banner-typed-text', {
-      strings: ["Banner"],
+      strings: [""],
       typeSpeed: 45,
       loop: true
     });
   }
 }
 
-export { loadDynamicBannerText };
+//export { loadDynamicBannerText };
