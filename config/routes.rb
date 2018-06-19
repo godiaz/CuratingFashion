@@ -39,6 +39,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :groups, only: [ :index, :new, :show, :create] do
+  end
+
   root to: 'pages#home'
 
   ActiveAdmin.routes(self)

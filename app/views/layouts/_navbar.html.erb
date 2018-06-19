@@ -1,94 +1,85 @@
 <div class="navbar-ufo">
   <div class="navbar-logo-search">
-  <!-- Logo -->
-  <div class="ufo-logo">
-  <%= link_to root_path, class: "navbar-ufo-brand" do %>
-    <%= image_tag "ufologonew.png" %>
-  <% end %>
-  </div>
-
   <!-- Search -->
     <div class="navbar-search">
     <%# unless (params[:controller] == 'pages' && params[:action] == 'home') || devise_controller? %>
-      <%= form_tag items_path, method: :get, class: "form-inline" do %>
+    <%= form_tag items_path, method: :get, class: "form-inline" do %>
       <div class="search-bar-in-nav">
-
         <div class="navbar-search-box">
           <%= text_field_tag :query, params[:query], placeholder: 'Search', class: "navbar-form-control" %>
           <div class="search-icon">
             <i class="fas fa-search"></i>
           </div>
         </div>
-
         <div class="navbar-location-box">
           <%= text_field_tag :place, params[:place], placeholder: 'Where?', class: "navbar-form-control" %>
           <div class="location-icon">
             <i class="fas fa-map-pin"></i>
           </div>
         </div>
-
       </div>
-        <input type="hidden" name="location" value="<%= @location&.empty? ? 'London' : @location %>">
-        <%= submit_tag :submit, class: "hidden" %>
-      <% end %>
+      <input type="hidden" name="location" value="<%= @location&.empty? ? 'London' : @location %>">
+      <%= submit_tag :submit, class: "hidden" %>
+    <% end %>
     </div>
-      <div class= "clear-button">
-        <% if @show_clear %>
-          <%= link_to "", items_path %>
-        <% end %>
-      </div>
+    <div class= "clear-button">
+      <% if @show_clear %>
+        <%= link_to "", items_path %>
+      <% end %>
+    </div>    
   </div>
-
+  <div class="blackpink-logo">
+  <%= link_to root_path, class: "navbar-ufo-brand" do %>
+    <%= image_tag "blackpinglogo.png" %>
+  <% end %>
+  </div>
   <!-- Right Navigation -->
   <div class="navbar-ufo-right hidden-xs hidden-sm">
-
-    <% if user_signed_in? %>
-    
-      <!-- Links when logged in -->
-      <%= link_to "Nearby Items", items_path, class: "navbar-ufo-item navbar-ufo-link" %>
-      <%#= link_to "Groups", "#", class: "navbar-ufo-item navbar-ufo-link" %>
-      <%= link_to "Messages", conversations_path, class: "navbar-ufo-item navbar-ufo-link" %>
-      <% if current_user.received_messages.any? { |m| !m.read } %>
-        <div class="dot"><i class="fas fa-circle"></i></div>
+  <% if user_signed_in? %>
+    <!-- Links when logged in -->
+    <%= link_to "Nearby Items", items_path, class: "navbar-ufo-item navbar-ufo-link" %>
+    <%#= link_to "Groups", "#", class: "navbar-ufo-item navbar-ufo-link" %>
+    <%= link_to "Messages", conversations_path, class: "navbar-ufo-item navbar-ufo-link" %>
+  <% if current_user.received_messages.any? { |m| !m.read } %>
+    <div class="dot"><i class="fas fa-circle"></i></div>
+  <% end %>
+  <!-- Avatar with dropdown menu -->
+  <div class="navbar-ufo-item">
+    <div class="dropdown">
+      <% if current_user.photo?  %>
+        <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-ufo-menu", "data-toggle" => "dropdown" %>
+      <% else %>
+        <%= image_tag "profile.png", class: "avatar dropdown-toggle", id: "navbar-ufo-menu", "data-toggle" => "dropdown" %>
       <% end %>
-
-      <!-- Avatar with dropdown menu -->
-      <div class="navbar-ufo-item">
-        <div class="dropdown">
-          <% if current_user.photo?  %>
-            <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-ufo-menu", "data-toggle" => "dropdown" %>
-          <% else %>
-            <%= image_tag "profile.png", class: "avatar dropdown-toggle", id: "navbar-ufo-menu", "data-toggle" => "dropdown" %>
+      <ul class="dropdown-menu dropdown-menu-right navbar-ufo-dropdown-menu">
+        <li>
+          <%= link_to edit_user_path(current_user) do %>
+          <i class="fas fa-user-alt"></i>  <%= t(".", default: "Profile") %>
           <% end %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-ufo-dropdown-menu">
-            <li>
-              <%= link_to edit_user_path(current_user) do %>
-              <i class="fas fa-user-alt"></i>  <%= t(".", default: "Profile") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to user_bookings_path(current_user)  do %>
-              <i class="fas fa-shopping-bag"></i> <%= t(".", default: "My Bookings") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to user_listing_path do %>
-              <i class="fas fa-box-open"></i> <%= t(".", default: "My Listings") %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-              <i class="fa fa-sign-out-alt"></i>  <%= t(".", default: "Log Out") %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
-      </div>
-    <% else %>
-      <!-- Login link (when logged out) -->
-      <div>
-        <%= link_to "Nearby Items", items_path, class: "navbar-ufo-item navbar-ufo-link" %>
-      </div>
+        </li>
+        <li>
+          <%= link_to user_bookings_path(current_user)  do %>
+          <i class="fas fa-shopping-bag"></i> <%= t(".", default: "My Bookings") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to user_listing_path do %>
+          <i class="fas fa-box-open"></i> <%= t(".", default: "My Listings") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fa fa-sign-out-alt"></i>  <%= t(".", default: "Log Out") %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <% else %>
+  <!-- Login link (when logged out) -->
+  <div>
+    <%= link_to "Nearby Items", items_path, class: "navbar-ufo-item navbar-ufo-link" %>
+  </div>
 
 
 <!-- TO BE USED LATER AS GROUPS -->
@@ -96,7 +87,7 @@
       <%#= link_to "Groups", "#", class: "navbar-ufo-item navbar-ufo-link" %>
       </div>
  -->
-      <div>
+
        <!-- Button trigger modal -->
       <div data-toggle="modal" data-target="#myModal2">
         <a class="navbar-ufo-item navbar-ufo-link">Log In</a>
@@ -138,7 +129,6 @@
             </div>
           </div>
         </div>
-      </div>
       </div>
 
       <!-- Button trigger modal -->
