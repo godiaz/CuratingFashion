@@ -21,9 +21,15 @@
 
 /* Logo */
 .navbar-ufo-brand img {
-  height: 45px;
+  height: 85px;
   margin-left: 5px;
   margin-bottom: 0px;
+}
+
+.blackpink-logo {
+  display: flex;
+  justify-content: flex-start;
+  margin-right: 5px;
 }
 
 /* User Avatar */
@@ -119,13 +125,6 @@
 .navbar-logo-search {
   display: flex;
   align-items: center;
-}
-
-.ufo-logo {
-  position: absolute;
-  bottom: 10px;
-  left: 550px;
-  margin-right: 5px;
 }
 
 .navbar-search .form-control {
