@@ -32,6 +32,12 @@
   margin-right: 5px;
 }
 
+.alignheadersright {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
 /* User Avatar */
 .navbar-ufo .avatar {
   height: 35px;
@@ -42,14 +48,16 @@
 /* Right section */
 .navbar-ufo-right {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: right;
+  width: 35%;
 }
 
 /* Basic navbar item */
 .navbar-ufo-item {
   cursor: pointer;
   padding: 0 20px;
+  display: flex;
+  align-items: center;
 }
 
 /* Navbar link */
@@ -64,6 +72,7 @@
   border-bottom: solid 0.1px transparent;
   font-family: 'Heebo', sans-serif;
   font-weight: lighter;
+  justify-content: center;
 }
 .navbar-ufo-link:hover {
   color: #dddddd;
@@ -95,6 +104,12 @@
   border-color: #616667;
   background-color: #00060C;
 }
+
+.dropdown {
+  position: left !important;
+  width: 10% !important;
+}
+
 .navbar-ufo-dropdown-menu li > a {
   transition: color 0.3s ease;
   font-weight: lighter !important;
