@@ -23,7 +23,8 @@
             <p><%= @messages.first.conversation.receiver.first_name %></p>
             <%= link_to "", user_path(@messages.first.conversation.receiver), class: "user-profile-link" %>
           </div>
-
+          
+         <!-- RUINS  THE MOBILE RESPONSE -->
           <div class="messages-avatar-picture">
             <%= cl_image_tag @messages.first.conversation.receiver.photo, class: "avatar-request-message" %>
           </div>
@@ -31,10 +32,6 @@
           <div class="messages-avatar-picture-two">
             <%= cl_image_tag @messages.first.conversation.sender.photo, class: "avatar-request-message" %>
           </div>
-
-<!--           <div class="messages-avatar-picture-three">
-            <i class="far fa-comment"></i>
-          </div> -->
 
         <% end %>
 
@@ -64,6 +61,7 @@
         </div>
       <% end %>
     </div>
+    <!-- RUINS  THE MOBILE RESPONSE -->
     <div class="request-photo">
       <%= link_to item_path(@messages.first.conversation.booking.item) do %>
         <div class="my-listing-card-image" style="background-image: url(<%= image_tag = @messages.first.conversation.booking.item.photo %>)">
