@@ -1,3 +1,70 @@
+@media (max-width: 415px){
+
+  .container-conversations-box {
+    justify-content: space-between;
+    display: flex;
+    justify-items: flex-start;
+    border-style: none;
+    margin: 5px;
+    padding: 0px;
+    min-height: 450px;  
+    margin-bottom: 2%;
+    font-family: 'Heebo', sans-serif;
+    min-width: 410px;
+    max-width: 410px;
+    padding-right: 30px;
+    overflow-y: scroll;
+  } 
+
+  .conversations-container {
+    border: 1px solid #dce0e0;
+    border-radius: 8px;
+    margin: 3px 3px;
+    padding: 5px 5px;
+    font-family: 'Heebo', sans-serif;
+    max-height: 80px;
+    min-width: 370px;
+    p {
+      font-size: 10px;
+      padding: 0px;
+      margin: 0px;
+      font-family: 'Heebo', sans-serif;
+    }
+    .name-and-date-of-convo{
+      margin: 0px 5px;
+    }
+    .booking-status-conversations{
+      margin: 0px 15px 0px 25px;
+    }
+  }
+
+  .container-min-margin-left {
+    max-width: 414px;
+    display: flex;
+    padding: 0px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .conversation-btn {
+    text-decoration: none;
+    background: #2f3030;
+    color: white;
+    border-radius: 4px;
+    padding: 10px 10px;
+    margin: 0 0px;
+    font-family: 'Heebo', sans-serif;
+    letter-spacing: 2px;
+    font-size: 8px;
+  }
+
+  .tab-content {
+    margin: 5px 5px;
+  }
+}
+
+
+
 .clean-header {
   font-size: 24px;
   font-family: 'Heebo', sans-serif;
@@ -17,13 +84,6 @@
   width: 100px;
   font-family: 'Heebo', sans-serif;
 }
-
-// .content-of-messages-left {
-//   font-weight: 300;
-//   margin-left: 30px;
-//   margin: 2px 0px;
-//   font-family: 'Heebo', sans-serif;
-// }
 
 .send-message-btn {
   background: #fd9ab9;
@@ -69,29 +129,24 @@
 
 .container-conversations-box {
   justify-content: space-between;
-  border: #dce0e0;
   margin: 0 0 0 0;
-  width: 950px;
-  min-width: 920px;
   height: 300px;  
   margin-bottom: 2%;
   padding: 15px;
   font-family: 'Heebo', sans-serif;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #E0E0E0;
-  border-radius: 8px;
+  display: flex;
   padding-right: 30px;
-  width: 950px;
   overflow-y: scroll;
 }
 
 .conversations-container {
   display: flex;
   justify-content: space-between;
-  border: #dce0e0;
-  margin: 10px 15px;
-  padding: 15px;
+  border: 1px solid #dce0e0;
+  border-radius: 8px;
+  width: 900px;
+  margin: 10px 5px;
+  padding: 10px;
   font-family: 'Heebo', sans-serif;
   p {
     padding: 0px;
