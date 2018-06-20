@@ -1,3 +1,57 @@
+@media ( max-width: 414px ) {
+
+    .profile-menu-btn {
+    width: 100%;
+    display: flex;
+    background: white;
+    padding: 10px;
+    margin: 0px;
+    border-radius: 5px;
+    color: black;
+    text-decoration: none;
+  }
+
+  .profile-menu-btn:hover {
+    color: white;
+    background: lightgrey;
+    text-decoration: none;
+  }
+
+  .underline {
+    text-decoration: none;
+    color: white !important;
+    background: black !important;
+  }
+
+  .edit-user-profile-menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 5px;
+    } p {
+      font-size: 14px;
+  }
+
+
+  .tabs-format-width {
+  flex: 1 0 auto;
+  margin: 18px 40px 10px 0px;
+  width: 100%;
+}
+}
+
+// ###################################################
+
+.profile-page-header {
+  margin-top: 10px;
+}
+
+.profile-page-header-h2 {
+  font-family: 'Heebo', sans-serif;
+  font-size: 14px;
+  font-weight: lighter;
+}
+
 .edit-user-page-container{
 	display: flex;
   flex-wrap: wrap;
@@ -24,7 +78,7 @@
 
 .profile-menu-btn:hover {
   color: white;
-  background: black;
+  background: lightgrey;
   text-decoration: none;
 }
 
@@ -41,7 +95,7 @@
 	font-size: 14px;
 }
 
-.edit-user{
+.edit-user {
 	display: flex;
 	flex-direction: column;
 	border-style: solid;

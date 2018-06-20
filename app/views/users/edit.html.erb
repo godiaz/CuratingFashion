@@ -1,49 +1,47 @@
 <div class="edit-user-page-container">
 
   <dir class="edit-user-profile-menu">
-    <!--ACTIVITY OVERVIEW TAB -->
+    <!-- ACTIVITY OVERVIEW BOUTON -->
     <div class="profile-menu-btn underline" id="id-edit-user-activity-overview-tab">
       <p>Activity Overview</p>
     </div>
 
-    <!--PROFILE TAB-->
+    <!-- PROFILE BOUTON -->
     <div class="profile-menu-btn" id="id-edit-user-profile-tab">
       <p>Edit Profile</p>
     </div>
 
-    <!--About you -->
+    <!-- ABOUT BOUTON -->
     <div class="profile-menu-btn" id="about-you-tab">
       <p>About You</p>
     </div>
   </dir>
 
   <div class="tabs-format-width">
-    <!--Activity Overview -->
-    <div class="user-profile-tabs" style="display:block;" id="actid">
-      <div class="edit-user eu-hide-form">
-        <h2 class="page-header">Activity Overview</h2>
-          <div class="edit-user-name-and-email">
-            <p>Booker</p>
-            <p>Lister</p>
-          </div>
+    <!-- Activity Overview -->
+      <div class="user-profile-tabs" style="display:block;" id="actid">
+        <div class="edit-user eu-hide-form">
+          <h2 class="profile-page-header">Activity Overview</h2>
+            <div class="edit-user-name-and-email">
+              <p>Booker</p>
+              <p>Lister</p>
+            </div>
+        </div>
       </div>
-    </div>
-    <!--Profile Tab -->
+    <!-- Profile Tab -->
     <div class="user-profile-tabs">
       <div class="edit-user" style="display:none;" id="euid">
         <div>
-          <h2 class="page-header">Edit Profile</h2>
+          <h2 class="profile-page-header">Edit Profile</h2>
           <%= simple_form_for(@user) do |f| %>
             <%= f.error_notification %>
-            <div class="details-container">
-
+            <div class="details-container-edit">
               <div class="edit-user-name-and-email">
                 <%= f.input :first_name, input_html: {class: "input-bar"} %>
                 <%= f.input :last_name, input_html: {class: "input-bar"}%>
                 <%= f.input :email, required: true, autofocus: true, input_html: {class: "input-bar"} %>
                 <%= f.input :address, required: false, input_html: {class: "input-bar"}%>
               </div>
-
               <div class="edit-user-address">
                 <%= f.input :phone_number, input_html: {class: "input-bar"}%>
                 <%= f.input :age, required: false, input_html: {class: "input-bar"} %>
@@ -61,16 +59,14 @@
         <% end %>
       </div>
     </div>
-
-
-        <!--About You -->
+    <!-- ABOUT YOU -->
       <div class="user-profile-tabs" style="display:none;" id="abyid">
         <div class="edit-user">
-          <h2 class="">About You</h2>
+          <h2 class="profile-page-header">About You</h2>
           <div class="">
             <%= simple_form_for(@user) do |f| %>
               <%= f.error_notification %>
-                <div class="details-container">
+                <div class="details-container-about">
                   <div class="edit-user-name-and-email">
                     <p> Please give us a small description of you so other users know how awesome you are </p>
                     <%= f.input :description, length: 80, input_html: {class: "description-input-bar"} %>
@@ -84,8 +80,8 @@
           </div>
         </div>
     </div>
-  </div>
 </div>
+
 
 <script>
   editProfileTab = document.getElementById("id-edit-user-profile-tab");
