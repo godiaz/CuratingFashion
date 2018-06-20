@@ -6,6 +6,34 @@
 	min-height: 600px;
 }
 
+.tabs-format-width {
+  flex: 1 0 auto;
+  margin: 18px 40px 10px 0px;
+}
+
+.profile-menu-btn {
+  display: flex;
+  background: white;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+  p {
+    margin: 0px;
+  }
+}
+
+.profile-menu-btn:hover {
+  color: white;
+  background: black;
+  text-decoration: none;
+}
+
+.underline {
+  text-decoration: none;
+  color: white !important;
+  background: black !important;
+}
+
 .edit-user-profile-menu{
 	display: flex;
 	flex-direction: column;
@@ -32,9 +60,6 @@
 	display: none;
 	// width: 700px;
 	// height: 600px;
-}
-.underline {
-	text-decoration: underline;
 }
 
 .edit-user-tabs{
