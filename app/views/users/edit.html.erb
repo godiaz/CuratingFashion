@@ -1,17 +1,17 @@
 <div class="edit-user-page-container">
 
   <dir class="edit-user-profile-menu">
-    <!--PROFILE TAB-->
-    <div class="profile-menu-edit-user-profile-tab" id="id-edit-user-profile-tab">
-      <p>Edit Profile</p>
-    </div>
-
     <!--ACTIVITY OVERVIEW TAB -->
     <div class="profile-menu-edit-user-activity-overview-tab" id="id-edit-user-activity-overview-tab">
       <p>Activity Overview</p>
     </div>
 
-        <!--Change the class and ID -->
+    <!--PROFILE TAB-->
+    <div class="profile-menu-edit-user-profile-tab" id="id-edit-user-profile-tab">
+      <p>Edit Profile</p>
+    </div>
+
+    <!--Change the class and ID -->
     <div class="" id="about-you-tab">
       <p>About You</p>
     </div>
@@ -19,11 +19,9 @@
 
   </dir>
 
-  <div class="edit-user-menu-items">
-
+  <div>
     <!--Profile Tab -->
     <div class="edit-user-profile-tab">
-
       <div class="edit-user" id="euid">
         <div>
           <h2 class="page-header">Edit Profile</h2>
@@ -103,7 +101,6 @@
   aboutYouBox = document.getElementById("abyid");
 
   editProfileTab.addEventListener("click", function() {
-    // console.log("hello");
     editProfileTab.classList.add("underline")
     activitiesTab.classList.remove("underline")
     aboutYouTab.classList.remove("underline")
