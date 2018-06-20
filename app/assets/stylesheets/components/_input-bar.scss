@@ -45,10 +45,16 @@
 	flex-direction: row;
 }
 
-.details-container{
+.details-container-edit {
 	display: flex;
-	align-content: center;
-	justify-content: space-between;
+	justify-content: space-around;
+  width: 90%;
+  height: 90%;
+}
+
+.details-container-edit {
+  display: flex;
+  justify-content: space-between;
   width: 90%;
   height: 90%;
 }
