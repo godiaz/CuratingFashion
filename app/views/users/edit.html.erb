@@ -2,27 +2,35 @@
 
   <dir class="edit-user-profile-menu">
     <!--ACTIVITY OVERVIEW TAB -->
-    <div class="profile-menu-edit-user-activity-overview-tab" id="id-edit-user-activity-overview-tab">
+    <div class="profile-menu-btn underline" id="id-edit-user-activity-overview-tab">
       <p>Activity Overview</p>
     </div>
 
     <!--PROFILE TAB-->
-    <div class="profile-menu-edit-user-profile-tab" id="id-edit-user-profile-tab">
+    <div class="profile-menu-btn" id="id-edit-user-profile-tab">
       <p>Edit Profile</p>
     </div>
 
-    <!--Change the class and ID -->
-    <div class="" id="about-you-tab">
+    <!--About you -->
+    <div class="profile-menu-btn" id="about-you-tab">
       <p>About You</p>
     </div>
-
-
   </dir>
 
-  <div>
+  <div class="tabs-format-width">
+    <!--Activity Overview -->
+    <div class="user-profile-tabs" style="display:block;" id="actid">
+      <div class="edit-user eu-hide-form">
+        <h2 class="page-header">Activity Overview</h2>
+          <div class="edit-user-name-and-email">
+            <p>Booker</p>
+            <p>Lister</p>
+          </div>
+      </div>
+    </div>
     <!--Profile Tab -->
-    <div class="edit-user-profile-tab">
-      <div class="edit-user" id="euid">
+    <div class="user-profile-tabs">
+      <div class="edit-user" style="display:none;" id="euid">
         <div>
           <h2 class="page-header">Edit Profile</h2>
           <%= simple_form_for(@user) do |f| %>
@@ -51,43 +59,30 @@
             <input type="submit" name="commit" value="Update" input_html="{&quot;class&quot;=>&quot;btn input-btn&quot;}" class="input-btn-ontop" data-disable-with="Update">
         </div>
         <% end %>
-        <p><%= link_to "Back", :back, input_html: {class: "back-link"} %></p>
-
       </div>
     </div>
 
-    <!--Activity Overview -->
-    <div class="edit-user-activity-overview-tab" id="actid">
-      <div class="activity-overview eu-hide-form">
-        <h2 class="page-header">Activity Overview</h2>
-          <div class="edit-user-name-and-email">
-            <p>Booker</p>
-            <p>Lister</p>
-          </div>
-      </div>
-    </div>
 
         <!--About You -->
-    <div class="edit-user-activity-overview-tab" id="abyid">
-      <div class="">
-        <h2 class="">About You</h2>
-        <div class="">
-          <%= simple_form_for(@user) do |f| %>
-            <%= f.error_notification %>
-              <div class="details-container">
-                <div class="edit-user-name-and-email">
-
-                  <p> Please give us a small description of you so other users know how awesome you are </p>
-                  <%= f.input :description, length: 80, input_html: {class: "description-input-bar"} %>
+      <div class="user-profile-tabs" style="display:none;" id="abyid">
+        <div class="edit-user">
+          <h2 class="">About You</h2>
+          <div class="">
+            <%= simple_form_for(@user) do |f| %>
+              <%= f.error_notification %>
+                <div class="details-container">
+                  <div class="edit-user-name-and-email">
+                    <p> Please give us a small description of you so other users know how awesome you are </p>
+                    <%= f.input :description, length: 80, input_html: {class: "description-input-bar"} %>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="details-container-two">
-              <input type="submit" name="commit" value="Update" input_html="{&quot;class&quot;=>&quot;btn input-btn&quot;}" class="input-btn-ontop" data-disable-with="Update">
-            </div>
-          <% end %>
+              <div class="details-container-two">
+                <input type="submit" name="commit" value="Update" input_html="{&quot;class&quot;=>&quot;btn input-btn&quot;}" class="input-btn-ontop" data-disable-with="Update">
+              </div>
+            <% end %>
+          </div>
         </div>
-      </div>
     </div>
   </div>
 </div>
@@ -125,5 +120,4 @@
     activitiesBox.style.display = "none"
     editProfileBox.style.display = "none"
   });
-
 </script>
