@@ -56,13 +56,13 @@
 	display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-	margin-top: 20px;
+	margin: 20px 40px;
 	min-height: 600px;
 }
 
 .tabs-format-width {
   flex: 1 0 auto;
-  margin: 18px 40px 10px 0px;
+  margin: 18px 0px 0px 0px;
 }
 
 .profile-menu-btn {
@@ -91,6 +91,7 @@
 .edit-user-profile-menu{
 	display: flex;
 	flex-direction: column;
+  padding: 0px !important;
 } p {
 	font-size: 14px;
 }
@@ -123,11 +124,6 @@
 .edit-user-name-and-email{
 	display: flex;
 	flex-direction: column;
-}
-
-.edit-user-address{
-  display: flex;
-  flex-direction: column;
 }
 
 .edit-user-other{
