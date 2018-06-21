@@ -47,16 +47,12 @@
 
 .details-container-edit {
 	display: flex;
+  flex-wrap: wrap;
 	justify-content: space-around;
+  justify-content: flex-start;
   width: 90%;
   height: 90%;
-}
-
-.details-container-edit {
-  display: flex;
-  justify-content: space-between;
-  width: 90%;
-  height: 90%;
+  margin: 0px !important;
 }
 
 .details-container a{
