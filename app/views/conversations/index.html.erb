@@ -62,7 +62,7 @@
               <p><%= conversation.booking.created_at.time.to_date %></p>
             </div>
 
-            <div class="start-of-message">
+            <div class="start-of-message hidden-xs">
               This is a conv between <%= conversation.sender.first_name %> and <%= conversation.receiver.first_name %> about <%= conversation.booking.item.name %>
             </div>
 
@@ -72,7 +72,6 @@
             </div>
               <%= link_to "conversation", conversation_messages_path(conversation), class: "conversation-btn" %>
           </div>
-          <hr width="95%">
           <% end %>
         <% end %>
       </div>

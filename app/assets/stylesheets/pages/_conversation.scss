@@ -4,26 +4,26 @@
     justify-content: space-between;
     display: flex;
     justify-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
     border-style: none;
     margin: 5px;
     padding: 0px;
     min-height: 450px;  
     margin-bottom: 2%;
     font-family: 'Heebo', sans-serif;
-    min-width: 410px;
-    max-width: 410px;
-    padding-right: 30px;
+    max-width: 400px;
     overflow-y: scroll;
   } 
 
   .conversations-container {
     border: 1px solid #dce0e0;
     border-radius: 8px;
-    margin: 3px 3px;
-    padding: 5px 5px;
+    margin: 0px 5px;
+    padding: 5px 10px;
     font-family: 'Heebo', sans-serif;
     max-height: 80px;
-    min-width: 370px;
+    max-width: 370px;
     p {
       font-size: 10px;
       padding: 0px;
@@ -129,12 +129,14 @@
 
 .container-conversations-box {
   justify-content: space-between;
-  margin: 0 0 0 0;
+  margin: 1px;
   height: 300px;  
   margin-bottom: 2%;
-  padding: 15px;
+  padding: 10px;
   font-family: 'Heebo', sans-serif;
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   padding-right: 30px;
   overflow-y: scroll;
 }
@@ -145,7 +147,7 @@
   border: 1px solid #dce0e0;
   border-radius: 8px;
   width: 900px;
-  margin: 10px 5px;
+  margin: 1px 5px;
   padding: 10px;
   font-family: 'Heebo', sans-serif;
   p {
