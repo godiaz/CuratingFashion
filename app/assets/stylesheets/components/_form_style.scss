@@ -11,6 +11,12 @@
 }
 
 
+@media (max-width: 412px) {
+  .item-results-submit-button {
+    padding-left: 0px !important;
+  }
+}
+
 .item-results-submit-button {
   padding-left: 12px;
   display: flex;
@@ -21,4 +27,11 @@
 .custom-inline-form {
   display: flex;
   height: 25px;
+  flex-wrap: wrap;
+}
+
+@media(max-width: 412px) {
+  .custom-inline-form {
+  height: 150px;
+  }
 }
