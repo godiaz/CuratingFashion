@@ -1,6 +1,6 @@
 <div class="banner-messages">
-  <!-- <h3 class="banner-messages-title">Chatbox</h3> -->
   <div class="request-container">
+
     <div class="messages-cards booking-details">
       <h3 class="messages-cards-h3"><%= @messages.first.conversation.booking.item.name %></h3>
       <div class="messages-cards request-avatar">
@@ -61,7 +61,7 @@
     <!-- RUINS  THE MOBILE RESPONSE -->
     <div class="request-photo">
       <%= link_to item_path(@messages.first.conversation.booking.item) do %>
-        <div class="my-listing-card-image" style="background-image: url(<%= image_tag = @messages.first.conversation.booking.item.photo %>)">
+        <div class="messages-card-image" style="background-image: url(<%= image_tag = @messages.first.conversation.booking.item.photo %>)">
         </div>
       <% end %>
     </div>
@@ -69,25 +69,19 @@
 
 </div>
 
-<div class="container">
+<div class="main-messages-container">
   <div class="request-msg-container">
     <div class="msg-container">
-      <div class="message-box">
-        <%= simple_form_for([@conversation, @message], remote: true) do |f| %>
-          <%= f.text_area :content, placeholder: "Type here your message...", class: "message-content"%>
-          <%= f.submit "Send", class: "input-btn-ontop btn-mess-margin" %>
-        <% end %>
-      </div>
 
       <% @all_mess = @messages.drop(1) %>
 
       <div id="message-bubble">
-        <% @all_mess.reverse_each do |message| %>
+        <% @all_mess.each do |message| %>
           <% if message.user == current_user %>
             <div class="speech-bubble">
               <div class="avatar-message-div">
-                <%= cl_image_tag message.user.photo, class: "avatar-message" %>
-                <h3 class="text-center"><%= message.user.first_name %></h3>
+                <%= cl_image_tag message.user.photo, class: "avatar-message hidden-xs" %>
+                <h3 class="text-center hidden-xs"><%= message.user.first_name %></h3>
               </div>
               <p><%= message.content%></p>
             </div>
@@ -95,13 +89,22 @@
             <div class="speech-bubble-r">
               <p><%= message.content %></p>
               <div class="avatar-message-div">
-                <%= cl_image_tag message.user.photo, class: "avatar-message" %>
-                <h3 class="text-center"><%= message.user.first_name %></h3>
+                <%= cl_image_tag message.user.photo, class: "avatar-message hidden-xs" %>
+                <h3 class="text-center hidden-xs"><%= message.user.first_name %></h3>
               </div>
+
+              
             </div>
           <% end %>
         <% end %>
       </div>
+      </div>
     </div>
+              <div class="message-box">
+                <%= simple_form_for([@conversation, @message], remote: true) do |f| %>
+                  <%= f.text_area :content, placeholder: "Type here your message...", class: "message-content"%>
+                  <%= f.submit "Send", class: "messages-input-btn-ontop" %> 
+                </div>
+                <% end %>
   </div>
 </div>
