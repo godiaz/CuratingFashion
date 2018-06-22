@@ -31,6 +31,7 @@
 .container-item-show {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   margin-top: 5px;
   margin-bottom: 5px;
   min-height: 400px;
@@ -53,6 +54,7 @@
 
 .map_and_itemdescription{
 	display: flex;
+  flex-wrap: wrap;
 	flex-direction: column;
 	font-size: 12px;
   margin-top: 40px;
@@ -115,12 +117,10 @@
   font-size: 18px;
 }
 
-
-.item-show-details{
+.item-show-details {
 	display: flex;
-	margin: 1px;
+  flex-wrap: wrap;
   margin-bottom: 15px;
-	flex-direction: row;
 	justify-content: space-between;
 	align-items: flex-start;
 	padding: 0px 0px 0px ;
@@ -321,7 +321,7 @@
   float: right;
 }
 
-.form-wrapper{
+.form-wrapper {
   position: relative;
   width: 100%;
 }
