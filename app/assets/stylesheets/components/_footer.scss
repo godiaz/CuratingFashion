@@ -3,14 +3,16 @@
   .footer-copyright{
     display: flex;
     vertical-align: buttom;
-    font-size: 11px;
+    font-size: 10px;
     color: #dddddd;
+    padding: 20px;
   }
 
 
   .footer-links{
     border-right: 1px solid #eeeeee;
     padding-right: 10px;
+    padding-bottom: 5px;
   }
 
   .footer-copyright i{
@@ -67,8 +69,10 @@
   color: #dddddd;
 } i {
   font-size: 22px;
+  opacity: 0.6;
 } i:hover{
-  opacity: 0.8;
+  opacity: 1.0;
+  color: white;
 }
 
 #fl1{
