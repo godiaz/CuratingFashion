@@ -20,7 +20,7 @@
             <p><%= @messages.first.conversation.receiver.first_name %></p>
             <%= link_to "", user_path(@messages.first.conversation.receiver), class: "user-profile-link" %>
           </div>
-          
+
          <!-- RUINS  THE MOBILE RESPONSE -->
           <div class="messages-avatar-picture">
             <%= cl_image_tag @messages.first.conversation.receiver.photo, class: "avatar-request-message" %>
@@ -36,7 +36,7 @@
 
 
       <div class="messages-duration-box">
-        <h3 class="duration-margin messages-titles-h3">Duration:</h3> 
+        <h3 class="duration-margin messages-titles-h3">Duration:</h3>
         <h4> <%= @messages.first.conversation.booking.days_range %> days (from <%= @messages.first.conversation.booking.start_date.strftime("%b %d, %Y") %> to <%= @messages.first.conversation.booking.end_date.strftime("%b %d, %Y") %>)
         </h4>
       </div>
@@ -46,11 +46,11 @@
         <h4> £<%=  @messages.first.conversation.booking.item.rental_price_cents / 100 * @messages.first.conversation.booking.days_range %> (£<%= @messages.first.conversation.booking.item.rental_price_cents / 100 %> / day)
         </h4>
       </div>
-      
-      <div class="messages-status-box">  
+
+      <div class="messages-status-box">
         <h3 class="status-margin messages-titles-h3">Status: </h3>
         <h4> <%= @messages.first.conversation.booking.status %></h4>
-      </div>  
+      </div>
       <% if current_user ==  @messages.first.conversation.receiver %>
         <div class="accept-decline-btn-div">
           <%= link_to "accept", conversation_message_bookings_accept_path(@messages.first.conversation, @messages.first.id), class: "request-btn" %>
