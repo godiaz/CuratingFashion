@@ -42,7 +42,7 @@
       <%= link_to "Nearby Items", items_path, class: "navbar-ufo-link" %>
       <%= link_to "Messages", conversations_path, class: "navbar-ufo-link" %>
     <% if current_user.received_messages.any? { |m| !m.read } %>
-      <div class="dot"><i class="fas fa-circle message-circle"></i></div>
+      <div class="dot"><i class="fas fa-circle"></i></div>
     <% end %>
     <!-- Avatar with dropdown menu -->
     <div class="navbar-ufo-item">
@@ -133,18 +133,22 @@
 
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-ufo-item hidden-md hidden-lg">
+     <% if user_signed_in? %>
+      <% if current_user.received_messages.any? { |m| !m.read } %>
+        <div class="dot"><i class="fas fa-circle menu-message-circle"></i></div>
+      <% end %>
+    <% end %>
+
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown" roll= "button"></i>
-      <% if user_signed_in? %>
+      <ul class="dropdown-menu dropdown-menu-right navbar-ufo-dropdown-menu">
+
+        <% if user_signed_in? %>
+        <li><%= link_to "Nearby Items", items_path %></li>
+        <li><%= link_to "Messages", conversations_path %></li>
         <% if current_user.received_messages.any? { |m| !m.read } %>
-          <div class="dot"><i class="fas fa-circle menu-message-circle"></i></div>
-        <% end %>
-        <ul class="dropdown-menu dropdown-menu-right navbar-ufo-dropdown-menu">
-          <li class="mobile-navbar-ufo-link"><%= link_to "Nearby Items", items_path %></li>
-          <li><%= link_to "Messages", conversations_path %></li>
-          <% if current_user.received_messages.any? { |m| !m.read } %>
-          <div class="dot"><i class="fas fa-circle message-circle"></i></div>
-        <% end %>
+        <div class="dot"><i class="fas fa-circle message-circle"></i></div>
+      <% end %>
       <li>
         <%= link_to edit_user_path(current_user) do %>
         <%= t(".", default: "Profile") %>
