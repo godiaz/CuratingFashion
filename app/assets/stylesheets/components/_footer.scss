@@ -1,3 +1,24 @@
+@media (max-width: 415px) {
+
+  .footer-copyright{
+    display: flex;
+    vertical-align: buttom;
+    font-size: 11px;
+    color: #dddddd;
+  }
+
+
+  .footer-links{
+    border-right: 1px solid #eeeeee;
+    padding-right: 10px;
+  }
+
+  .footer-copyright i{
+    font-size: 16px;
+  }
+  
+}
+
 
 .footer {
   background: #00060C;
@@ -5,7 +26,7 @@
   align-items: center;
   justify-content: space-between;
   height: 100px;
-  padding: 0px 50px;
+  padding: 0px 32px;
   color: #EDEDED;
   width: 100%;
   border-top: solid;
@@ -39,9 +60,15 @@
 
 .footer-copyright{
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   vertical-align: buttom;
   font-size: 14px;
   color: #dddddd;
+} i {
+  font-size: 22px;
+} i:hover{
+  opacity: 0.8;
 }
 
 #fl1{

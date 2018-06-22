@@ -1,3 +1,15 @@
+@media (max-width: 415px){
+  .dropdown-menu.dropdown-menu-right.navbar-ufo-dropdown-menu a{
+    font-size: 14px;
+  }
+
+  .dropdown-menu.dropdown-menu-right.navbar-ufo-dropdown-menu {
+    
+  }
+
+}
+
+
 /* Main navbar */
 .dot {
   color: #FC6A7F;
@@ -78,17 +90,13 @@
   transition: color 0.4s ease-in-out;
   opacity: 1.0;
   text-decoration: none;
-  //border-bottom: solid 1.5px #9595a0;
   display: inline;
-  //border-color: #FD9AB9;
 }
 
 .navbar-ufo-link:active {
   color: #dddddd;
   text-decoration: none;
-  //border-bottom: solid 1.5px #9595a0;
   display: inline;
-  //border-color: #FD9AB9;
 }
 
 .navbar-ufo-link:visited {
@@ -111,16 +119,16 @@
 
 .navbar-ufo-dropdown-menu li > a {
   transition: color 0.3s ease;
-  font-weight: lighter !important;
-  color: #C9C9C9 !important;
-  font-size: 15px !important;
-  line-height: 22px !important;
+  font-weight: lighter;
+  color: #C9C9C9;
+  font-size: 15px;
+  line-height: 22px;
   padding: 10px 20px;
-  font-size: 11px !important;
+  font-size: 11px;
 }
 .navbar-ufo-dropdown-menu li > a:hover {
-  background: transparent !important;
-  color: white !important;
+  background: transparent;
+  color: white;
 }
 
 .navbar-ufo-dropdown-menu:before {
