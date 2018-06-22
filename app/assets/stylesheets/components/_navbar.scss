@@ -1,8 +1,26 @@
 @media (max-width: 415px){
   .dropdown-menu.dropdown-menu-right.navbar-ufo-dropdown-menu a{
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 30px;
   }
 
+  .message-circle{
+    font-size: 9px;
+    opacity: 1.0;
+    color: red;
+    position: absolute;
+    top: 40px;
+    left: 70px;
+  }
+
+  .menu-message-circle{
+    position: absolute;
+    bottom: 18px;
+    left: 126px;
+    font-size: 10px;
+    color: red;
+    opacity: 1.0;
+  }
 
 }
 
@@ -89,6 +107,17 @@
   text-decoration: none;
   display: inline;
 }
+
+.message-circle{
+  font-size: 9px;
+  opacity: 1.0;
+  color: red;
+}
+
+.message-circle:hover{
+  color: red;
+}
+
 
 .navbar-ufo-link:active {
   color: #dddddd;
