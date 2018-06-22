@@ -1,7 +1,7 @@
 # config/meta.yml
 
-meta_product_name: "Blackpink - Niwe Couture"
-meta_title: "Blackpink - Niwe Couture"
-meta_description: "Influencer-curated fashion apparel around you"
+meta_product_name: "Niwe -Selected Couture"
+meta_title: "Niwe - Selected Couture"
+meta_description: "Choose from Fashion Curators"
 meta_image: "ufo-landing-page.png"                       # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards
