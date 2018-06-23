@@ -39,7 +39,6 @@
   background: #00060C;
   transition: all 0.3s ease;
   height: 70px;
-  padding: 0px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -52,10 +51,11 @@
   margin-bottom: 0px;
 }
 
+
+
 .blackpink-logo {
   display: flex;
   justify-content: flex-start;
-  margin-right: 5px;
 }
 
 .alignheadersright {
@@ -81,7 +81,7 @@
 /* Basic navbar item */
 .navbar-ufo-item {
   cursor: pointer;
-  padding: 0 20px;
+  padding: 0 30px;
   display: flex;
   align-items: center;
 }
@@ -186,6 +186,9 @@
 
 }
 
+
+
+
 .navbar-search {
   margin-left: 70px;
 }
@@ -228,6 +231,21 @@
   color: #C9C9C9;
   top: 15px;
   left: -15px;
+}
+
+@media ( max-width: 412px ) {
+  .search-bar-in-nav {
+    width: 50px;
+  }
+
+  .navbar-search {
+  margin-left: 30px;
+  }
+
+  .navbar-ufo-brand img {
+  height: 20px;
+  margin: 0px;
+}
 }
 
 .search-bar-in-nav{
