@@ -1,7 +1,7 @@
 <div class="navbar-ufo">
   <div class="navbar-logo-search">
   <!-- Search -->
-    <div class="navbar-search hidden-xs hidden-sm">
+    <div class="navbar-search">
     <%# unless (params[:controller] == 'pages' && params[:action] == 'home') || devise_controller? %>
     <%= form_tag items_path, method: :get, class: "form-inline" do %>
       <div class="search-bar-in-nav">
@@ -11,7 +11,7 @@
             <i class="fas fa-search"></i>
           </div>
         </div>
-        <div class="navbar-location-box">
+        <div class="navbar-location-box hidden-xs hidden-sm">
           <%= text_field_tag :place, params[:place], placeholder: 'Where?', class: "navbar-form-control" %>
           <div class="location-icon">
             <i class="fas fa-map-pin"></i>

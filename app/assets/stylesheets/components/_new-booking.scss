@@ -45,6 +45,37 @@
 	margin-left: 30px;
 }
 
+
+.request-buying-box{
+  margin: 0px 10px;
+  width: 200px;
+  height: 150px;
+  border-style: solid;
+  border-color: #DDDDDD;
+  border-radius: 2px;
+  padding: 10px;
+  border-width: 1px;
+  display: flex;
+}
+
+.request-buying-box label{
+  font-size: 11px;
+  font-family: 'Heebo', sans-serif;
+  padding-right: 30px !important;
+  padding-bottom: 4px;
+  padding-top: 2px;
+}
+
+
+.calendar-icon{
+  margin-bottom: 5px;
+}
+
+.input-group {
+  position: relative;
+  margin: 2px 0px;
+}
+
 .request-booking-box{
 	margin: 0px 10px;
 	width: 200px;
@@ -66,36 +97,6 @@
 .request-booking-box p{
 	font-size: 11px;
 	font-family: 'Heebo', sans-serif;
-}
-
-.request-buying-box{
-	margin: 0px 10px;
-	width: 200px;
-	height: 150px;
-	border-style: solid;
-	border-color: #DDDDDD;
-	border-radius: 2px;
-	padding: 10px;
-	border-width: 1px;
-	display: flex;
-}
-
-.request-buying-box label{
-	font-size: 11px;
-	font-family: 'Heebo', sans-serif;
-	padding-right: 30px !important;
-	padding-bottom: 4px;
-	padding-top: 2px;
-}
-
-
-.calendar-icon{
-	margin-bottom: 5px;
-}
-
-.input-group {
-	position: relative;
-  margin: 2px 0px;
 }
 
 .request-booking-box .item-show-calendar-icon-top {
