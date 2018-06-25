@@ -8,53 +8,62 @@
 			<!-- FOLLOWERS + FOLLOW + CURRENT LISTINGS NUMBER  -->
 			
 			<!-- #1 -->
-			<%= cl_image_tag @user.photo, class: "user-show-avatar"%>
+			<%= cl_image_tag @user.photo, class: "mobile-user-show-avatar"%>
 
-			<!-- #2 -->
-			<div class="mobile-user-boxes">
-				<p>0</p>
-				<p>Followers</p>
-			</div>
+			<div class="user-mobile-profile-boxes-container">
+				<!-- #2 -->
+				<div class="mobile-user-boxes">
+					<p>0</p>
+					<p>Followers</p>
+				</div>
 
-			<!-- #3 -->
-			<div class="mobile-user-boxes">
-				<% if @user.average_rating == 0  %>
-				 <p><%= "0" %></p>
-				<% else  %> 
-				 <p><% @user.average_rating.times %></p>
-				<% end %>
-				<p>Rating</p>
-			</div>
+				<!-- #3 -->
+				<div class="mobile-user-boxes">
+					<% if @user.average_rating == 0  %>
+					 <p><%= "0" %></p>
+					<% else  %> 
+					 <p><% @user.average_rating.times %></p>
+					<% end %>
+					<p>Rating</p>
+				</div>
 
-			<!-- #4 -->
-			<div class="mobile-user-boxes">
-				<% if @user.items.count == 0 %>
-					<%= "0" %>
-				<% else %>
-					<p><%= @user.items.count %></p>
-					<p>Items</p>
-				<% end %>
-			</div>
-				
+				<!-- #4 -->
+				<div class="mobile-user-boxes">
+					<% if @user.items.count == 0 %>
+						<%= "0" %>
+					<% else %>
+						<p><%= @user.items.count %></p>
+						<p>Items</p>
+					<% end %>
+				</div>
+			</div>	
 		</div>
 
 		<!-- NAME AND FOLLOW BUTTON -->
 		<div class="mobile-user-name-and-button">
-			<div>			
-				<h3><%= @user.first_name %> <%= @user.last_name %></h3>
-				<h3><strong><%= @user.address.split(",")[1] %></strong>, <%=  @user.address.split(",")[2] %></h3>
+			<div class="mobile-user-name-and-location">			
+				<p><%= @user.first_name %> <%= @user.last_name %></p>
+				<p><strong><%= @user.address.split(",")[1] %></strong>, <%=  @user.address.split(",")[2] %></p>
 			</div>
 
-			<p>BUTTON TO FOLLOW</p>
+			<p class="follow-btn">FOLLOW</p>
 		</div>
 
 		<!-- BIO OF THE PERSON -->
-		<div>
+		<div class="mobile-user-profile-description">
 			<p><%= @user.description %></p>
 		</div>
 	</div>
 	<!-- WHERE THE PICTURE OF THE ITEMS GO -->
 		<div>
-			
+			<div class="mobile-cards-container">
+			  <% @user.items.last(14).each do |item| %>
+			    <div class="mobile-card">
+			        <%= link_to item_path(item.id) do %>
+			          <div class="mobile-card-image" style="background-image: url(<%= cl_image_path item.photo %>)"></div>
+			        <% end %>
+			    </div>
+			  <% end %>
+			</div>
 		</div>
 </div>

@@ -15,13 +15,92 @@
 
 // MOBILE VARIABLE
 
+.mobile-cards-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow-x: scroll;
+  max-height: 460px;
+  margin: 0px 13px;
+}
+
+.mobile-card{
+  display: flex;
+  position: relative;
+  margin: 5px;
+  padding: 5px 5px 10px 5px;
+  transition: .3s;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #f2f2f2;
+  border-radius: 4px;
+  width: 100px;
+  height: 100px;
+}
+
+.mobile-card-image{
+  width: 80px;
+  height: 80px;
+  margin: 0px 5px 0 5px;
+  padding-bottom: 10px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.mobile-user-show-avatar{
+	width: 60px;
+	height: 60px;
+	-webkit-border-radius: 60px;
+	-webkit-background-clip: padding-box;
+	-moz-border-radius: 60px;
+	-moz-background-clip: padding;
+	border-radius: 60px;
+	background-clip: padding-box;
+	margin: 10px 10px 0 5px;
+	background-size: cover;
+	background-position: center center;
+}
+
+.mobile-user-profile-description{
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.follow-btn{
+	border: 1px solid gray;
+	background: gray;
+	border-radius: 5px;
+	color: white;
+	width: 200px;
+	padding: 5px 30px;
+	height: 25px;
+	text-align: center;
+}
+
+.follow-btn:hover{
+	opacity: 0.7;
+}
+
 .mobile-user-show-avatar-rating-followers{
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	margin-bottom: 10px;
-	justify-content: center;	
+	margin-right: 10px;
+	justify-content: space-between;
+}
 
+.user-mobile-profile-boxes-container{
+	display: flex;
+	flex-direction: row;
+}
+
+.mobile-user-name-and-location{
+	display: flex;
+	flex-direction: column;
+	flex-position: flex-start;
 }
 
 .mobile-user-container{
@@ -31,6 +110,8 @@
 .mobile-user-name-and-button{
 	display: flex;
 	flex-direction: row;
+	justify-content: space-between;
+	margin-right: 10px;
 }
 
 .mobile-user-boxes {
