@@ -5,6 +5,13 @@ class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
+    
+    # if browser.mobile?
+    #   render 'mobile_profile'
+    #   else
+    #   render 'profile'
+    # end
+
     @item = Item.new
     @bookings = Booking.all
     @location = request.location.data['city']

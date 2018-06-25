@@ -1,4 +1,7 @@
 <!-- User Show Profile Page -->
+<% if mobile? %>
+<%= render 'mobile-show' %>
+<% else %>
 
 <div class="user-show-container">
 	
@@ -87,6 +90,7 @@
 	</div>
 
 </div>
+<% end  %>
 
 
 
