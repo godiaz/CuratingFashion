@@ -1,16 +1,70 @@
+@media (max-width: 415px){
+	.user-show-avatar{
+		border-radius: 50%;
+		width: 30%;
+		height: 30%;
+		margin: 30px;
+		vertical-align: middle;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
+
+}
+
+// MOBILE VARIABLE
+
+.mobile-user-show-avatar-rating-followers{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-bottom: 10px;
+	justify-content: center;	
+
+}
+
+.mobile-user-container{
+	padding: 0px 20px;
+}
+
+.mobile-user-name-and-button{
+	display: flex;
+	flex-direction: row;
+}
+
+.mobile-user-boxes {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid gray;
+	border-radius: 8px;
+	padding: 5px;
+	align-items: center;
+	margin: 10px 5px;
+	min-width: 50px;
+} p{
+	font-size: 9px;
+	margin: 2px;
+}
+
+// ###########################
+
+
 .user-show-container{
 	min-height: 600px;
 	display: flex;
 	flex-direction: column;
-	padding: 50px;
+	padding: 10px;
 }
 
 .user-show-profile-details{
 	display: flex;
+	justify-content: space-around;
 	border-style: solid;
 	border-width: 1px;
 	border-color: #E3E3E3;
 	border-radius: 25px;
+	padding: 10px;
 }
 
 .user-show-title{
@@ -25,14 +79,17 @@
 }
 
 .user-show-avatar{
-	border-radius: 50%;
-	width: 30vh;
-	height: 30vh;
-	margin: 30px;
-	vertical-align: middle;
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: center;
+	width: 60px;
+	height: 60px;
+	-webkit-border-radius: 60px;
+	-webkit-background-clip: padding-box;
+	-moz-border-radius: 60px;
+	-moz-background-clip: padding;
+	border-radius: 60px;
+	background-clip: padding-box;
+	margin: 7px 10px 0 5px;
+	background-size: cover;
+	background-position: center center;
 }
 
 .user-show-ratings-box{

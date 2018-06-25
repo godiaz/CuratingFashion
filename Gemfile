@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.4.4'
 
 gem 'bootsnap', require: false
+gem "browser"
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'

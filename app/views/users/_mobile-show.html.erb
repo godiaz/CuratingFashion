@@ -1,0 +1,60 @@
+<!-- MAIN CONTAINER -->
+<div>
+	<!-- AVATAR + FOLLOWERS + RATINGS + C -->
+	<div class="mobile-user-container">
+
+		<div class="mobile-user-show-avatar-rating-followers">
+			<!-- AVATAR-->
+			<!-- FOLLOWERS + FOLLOW + CURRENT LISTINGS NUMBER  -->
+			
+			<!-- #1 -->
+			<%= cl_image_tag @user.photo, class: "user-show-avatar"%>
+
+			<!-- #2 -->
+			<div class="mobile-user-boxes">
+				<p>0</p>
+				<p>Followers</p>
+			</div>
+
+			<!-- #3 -->
+			<div class="mobile-user-boxes">
+				<% if @user.average_rating == 0  %>
+				 <p><%= "0" %></p>
+				<% else  %> 
+				 <p><% @user.average_rating.times %></p>
+				<% end %>
+				<p>Rating</p>
+			</div>
+
+			<!-- #4 -->
+			<div class="mobile-user-boxes">
+				<% if @user.items.count == 0 %>
+					<%= "0" %>
+				<% else %>
+					<p><%= @user.items.count %></p>
+					<p>Items</p>
+				<% end %>
+			</div>
+				
+		</div>
+
+		<!-- NAME AND FOLLOW BUTTON -->
+		<div class="mobile-user-name-and-button">
+			<div>			
+				<h3><%= @user.first_name %> <%= @user.last_name %></h3>
+				<h3><strong><%= @user.address.split(",")[1] %></strong>, <%=  @user.address.split(",")[2] %></h3>
+			</div>
+
+			<p>BUTTON TO FOLLOW</p>
+		</div>
+
+		<!-- BIO OF THE PERSON -->
+		<div>
+			<p><%= @user.description %></p>
+		</div>
+	</div>
+	<!-- WHERE THE PICTURE OF THE ITEMS GO -->
+		<div>
+			
+		</div>
+</div>
