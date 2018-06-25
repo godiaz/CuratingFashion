@@ -2,7 +2,7 @@ import GMaps from 'gmaps/gmaps.js';
 import { autocomplete } from '../components/autocomplete';
 
 var mapElement = document.getElementById('map');
-let map
+let map;
 
 if (mapElement) {
   map = new GMaps({ el: '#map', lat: 0, lng: 0 });
