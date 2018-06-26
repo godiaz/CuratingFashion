@@ -10,6 +10,11 @@
         </div>
 
         <div class="size-button">
+          <%= select_tag "category", options_for_select(@categories), include_blank: "Category", input_html: {class: 'filter-btn'} %>
+        <div><i class="fas fa-angle-down arrow-box hidden-sm hidden-md hidden-lg"></i></div>
+        </div>
+
+        <div class="size-button">
           <%= select_tag "rental_price_cents", options_for_select(@prices), include_blank: "Rent price", input_html: {class: 'filter-btn'} %>
         <div><i class="fas fa-angle-down arrow-box hidden-sm hidden-md hidden-lg"></i></div>
         </div>

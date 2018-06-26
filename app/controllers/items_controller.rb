@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    
+
     # if browser.mobile?
     #   render 'mobile_profile'
     #   else
@@ -156,7 +156,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :description, :rental_price, :buying_price, :size, :availability, :rental_only, :photo, :color, :average_rating, :item_id)
+    params.require(:item).permit(:name, :description, :rental_price, :buying_price, :size, :availability, :rental_only, :photo, :category, :color, :average_rating, :item_id)
   end
 
   def form_tag_params
@@ -164,7 +164,7 @@ class ItemsController < ApplicationController
   end
 
   def set_variables
-    @categories = ["Jacket", "Shirt", "Trousers", "Dress"]
+    @categories = ["Jacket", "Shirt", "Coat", "Trousers", "Dress"]
     @prices = ["0-20", "21-100", "100-1000"]
     @sizes = ["XS", "S", "M", "L", "XL"]
     @colors = ["Red", "Green", "Blue", "Black", "White", "Yellow", "Pink"]
