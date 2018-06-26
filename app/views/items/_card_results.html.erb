@@ -1,6 +1,18 @@
 <% items.each do |item| %>
   <div class="col-xs-12 col-sm-6 col-md-4">
     <div class="card-image-results">
+
+    <% if current_user.voted_for? item %>
+      <%= link_to item_unlike_path(item.id) do %> 
+        <i class="fas fa-minus"></i>
+       <% end %>
+    <% else %>    
+      <%= link_to item_like_path(item.id) do %> 
+        <i class="fas fa-plus-square"></i>
+       <% end %>
+    <% end %>
+
+
       <%= link_to item_path(item.id) do %>
         <div class="card-image-index" style="background-image: url(<%= cl_image_path item.photo %>)"></div>
       <% end %>
