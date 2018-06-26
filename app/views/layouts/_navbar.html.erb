@@ -40,6 +40,7 @@
     <% if user_signed_in? %>
       <!-- Links when logged in -->
       <%= link_to "Nearby Items", items_path, class: "navbar-ufo-link" %>
+      <%= link_to "Favorites", favorites_path, class: "navbar-ufo-link" %>
       <%= link_to "Messages", conversations_path, class: "navbar-ufo-link" %>
     <% if current_user.received_messages.any? { |m| !m.read } %>
       <div class="dot"><i class="fas fa-circle"></i></div>

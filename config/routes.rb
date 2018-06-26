@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'locations', to: 'pages#locations', as: :locations
   get 'termsofservice', to: 'pages#termsofservice', as: :termsofservice
   get 'ppolicy', to: 'pages#ppolicy', as: :ppolicy
+  get 'favorites', to: 'pages#favorites', as: :favorites
 
   devise_for :users
 
@@ -31,6 +32,8 @@ Rails.application.routes.draw do
   resources :items do
     get 'like', to: 'items#like'
     get 'unlike', to: 'items#unlike'
+    get 'likefav', to: 'items#likefav'
+    get 'unlikefav', to: 'items#unlikefav'
     resources :bookings, except: [:index]
     resources :reviews, only: [:create, :index, :destroy]
   end

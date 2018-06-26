@@ -116,6 +116,18 @@ class ItemsController < ApplicationController
     redirect_to items_path
   end
 
+  def likefav
+    item = Item.find(params['item_id'])
+    item.liked_by current_user
+    redirect_to favorites_path
+  end
+
+  def unlikefav
+    item = Item.find(params['item_id'])
+    item.unliked_by current_user
+    redirect_to favorites_path
+  end
+
   def update
     @item.update(item_params)
     redirect_to item_path(@item)
