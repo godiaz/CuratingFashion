@@ -104,6 +104,18 @@ class ItemsController < ApplicationController
 
   end
 
+  def like
+    item = Item.find(params['item_id'])
+    item.liked_by current_user
+    redirect_to items_path
+  end
+
+  def unlike
+    item = Item.find(params['item_id'])
+    item.unliked_by current_user
+    redirect_to items_path
+  end
+
   def update
     @item.update(item_params)
     redirect_to item_path(@item)
@@ -144,7 +156,7 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :description, :rental_price, :buying_price, :size, :availability, :rental_only, :photo, :color, :average_rating)
+    params.require(:item).permit(:name, :description, :rental_price, :buying_price, :size, :availability, :rental_only, :photo, :color, :average_rating, :item_id)
   end
 
   def form_tag_params

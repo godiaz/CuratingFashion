@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+   acts_as_voter
   # validates :photo, presence: true
   mount_uploader :photo, PhotoUploader
   # Include default devise modules. Others available are:
@@ -14,6 +15,8 @@ class User < ApplicationRecord
   has_many :received_messages, foreign_key: :receiver_id, class_name: "Message"
   has_many :conversations
   has_many :reviews
+
+  validates :address, presence: true
 
 
   geocoded_by :address

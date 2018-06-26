@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  acts_as_votable
   belongs_to :user
   has_many :orders, dependent: :destroy
   has_many :bookings, dependent: :destroy
@@ -21,6 +22,7 @@ class Item < ApplicationRecord
     using: {
     tsearch: { prefix: true }
     }
+
 
   def average_rating
     if reviews.count == 0

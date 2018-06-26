@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/user_listing', to: 'pages#user_listing', as: :user_listing
   get '/user_booking', to: 'pages#user_booking', as: :user_booking
 
+
   resources :users, only: [:edit, :update, :show] do
     resources :bookings, only: :index
   end
@@ -26,7 +27,10 @@ Rails.application.routes.draw do
     resources :payments, only: [:new, :create]
   end
 
+
   resources :items do
+    get 'like', to: 'items#like'
+    get 'unlike', to: 'items#unlike'
     resources :bookings, except: [:index]
     resources :reviews, only: [:create, :index, :destroy]
   end
