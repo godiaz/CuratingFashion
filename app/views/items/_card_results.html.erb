@@ -3,15 +3,10 @@
     <div class="card-image-results">
 
     <% if current_user.voted_for? item %>
-      <%= link_to item_unlike_path(item.id) do %> 
-        <i class="fas fa-minus"></i>
-       <% end %>
+      <%= link_to '<i class="fas fa-minus-square plus_and_minus_button"></i>'.html_safe, item_unlike_path(item.id)%> 
     <% else %>    
-      <%= link_to item_like_path(item.id) do %> 
-        <i class="fas fa-plus-square"></i>
-       <% end %>
+      <%= link_to '<i class="fas fa-plus-square plus_and_minus_button"></i>'.html_safe, item_like_path(item.id)%>
     <% end %>
-
 
       <%= link_to item_path(item.id) do %>
         <div class="card-image-index" style="background-image: url(<%= cl_image_path item.photo %>)"></div>
