@@ -2,9 +2,11 @@ source 'https://rubygems.org'
 
 ruby '2.4.4'
 
+gem 'nokogiri', '~> 1.8.2'
+gem	'mechanize', '~> 2.7.6'
 gem 'acts_as_votable', '~> 0.11.1'
 gem 'bootsnap', require: false
-gem "browser"
+gem 'browser'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'

@@ -14,6 +14,8 @@
 		</div>
 
 		<div class="user-show-details-box">
+			<%= page = @mechanize.get('https://www.instagram.com/#{@user.ig/')  %>
+			<%=  %>
 
 
 			<div class="user-show-names-box">
@@ -50,6 +52,12 @@
 		<div class="cards-container">
 		  <% @user.items.first(6).each do |item| %>
 		    <div class="card">
+		    	<% if current_user.voted_for? item %>
+		    	  <%= link_to '<i class="fas fa-minus-square plus_and_minus_button"></i>'.html_safe, item_unlike_path(item.id)%> 
+		    	<% else %>    
+		    	  <%= link_to '<i class="fas fa-plus-square plus_and_minus_button"></i>'.html_safe, item_like_path(item.id)%>
+		    	<% end %>
+
 		        <%= link_to item_path(item.id) do %>
 		          <div class="card-image" style="background-image: url(<%= cl_image_path item.photo %>)"></div>
 		        <% end %>
@@ -72,6 +80,12 @@
 		<div class="cards-container">
 		  <% @user.items.last(6).each do |item| %>
 		    <div class="card">
+		    	<% if current_user.voted_for? item %>
+		    	  <%= link_to '<i class="fas fa-minus-square plus_and_minus_button"></i>'.html_safe, item_unlike_path(item.id)%> 
+		    	<% else %>    
+		    	  <%= link_to '<i class="fas fa-plus-square plus_and_minus_button"></i>'.html_safe, item_like_path(item.id)%>
+		    	<% end %>
+
 		        <%= link_to item_path(item.id) do %>
 		          <div class="card-image" style="background-image: url(<%= cl_image_path item.photo %>)"></div>
 		        <% end %>

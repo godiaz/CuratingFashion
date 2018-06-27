@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 
   def show
     #already finds
+    @mechanize = Mechanize.new
     @available_items = Item.where("availability = ? AND user_id = ?", true, @user.id).count
   end
 
@@ -38,8 +39,6 @@ class UsersController < ApplicationController
   end
 
 
-
-
   private
 
   def set_user
@@ -47,6 +46,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :address, :phone_number, :description, :age, :gender, :latitude, :longitude, :photo)
+    params.require(:user).permit(:first_name, :last_name, :address, :phone_number, :ig, :description, :age, :gender, :latitude, :longitude, :photo)
   end
 end

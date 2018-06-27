@@ -32,8 +32,6 @@ Rails.application.routes.draw do
   resources :items do
     get 'like', to: 'items#like'
     get 'unlike', to: 'items#unlike'
-    get 'likefav', to: 'items#likefav'
-    get 'unlikefav', to: 'items#unlikefav'
     resources :bookings, except: [:index]
     resources :reviews, only: [:create, :index, :destroy]
   end

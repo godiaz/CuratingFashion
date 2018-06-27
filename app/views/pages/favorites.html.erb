@@ -6,18 +6,19 @@
 			<div class="cards-container">
 			
 
-				<% @user.find_voted_items.each do |item| %>
+	
+			<% @user.find_voted_items.each do |item| %>
 			    <div class="card">
 					<% if current_user.voted_for? item %>
-					  <%= link_to '<i class="fas fa-minus-square plus_and_minus_button"></i>'.html_safe, item_unlikefav_path(item.id)%> 
+					  <%= link_to '<i class="fas fa-minus-square plus_and_minus_button"></i>'.html_safe, item_unlike_path(item.id)%> 
 					<% else %>    
-					  <%= link_to '<i class="fas fa-plus-square plus_and_minus_button"></i>'.html_safe, item_likefav_path(item.id)%>
+					  <%= link_to '<i class="fas fa-plus-square plus_and_minus_button"></i>'.html_safe, item_like_path(item.id)%>
 					<% end %>
 			        <%= link_to item_path(item.id) do %>
 			          <div class="card-image" style="background-image: url(<%= cl_image_path item.photo %>)"></div>
 			        <% end %>
 			        <div class="card-description">
-			          <h3><%= item.name %></h3>
+			          <h3><%= item[1] %></h3>
 			          <p> <strong>Rent per day: <%= humanized_money_with_symbol(item.rental_price) %></strong>    Buy it for: <%= humanized_money_with_symbol(item.buying_price) %></p>
 			        <div>
 			        <% item.average_rating.times do %>
@@ -27,8 +28,8 @@
 			        </div>
 			        </div>
 			    </div>
-
 			  <% end %>
+
 			</div>
 		</div>
 	</div>
