@@ -19,11 +19,14 @@
   <div class="cards-container">
     <% @items.last(5).each do |item| %>
       <div class="card">
-        <% if current_user.voted_for? item %>
-          <%= link_to '<i class="fas fa-minus-square plus_and_minus_button"></i>'.html_safe, item_unlike_path(item.id)%> 
-        <% else %>    
-          <%= link_to '<i class="fas fa-plus-square plus_and_minus_button"></i>'.html_safe, item_like_path(item.id)%>
-        <% end %>
+        <% if user_signed_in? %>
+          <% if current_user.voted_for? item %>
+            <%= link_to '<i class="fas fa-minus-square plus_and_minus_button"></i>'.html_safe, item_unlike_path(item.id)%> 
+          <% else %>    
+            <%= link_to '<i class="fas fa-plus-square plus_and_minus_button"></i>'.html_safe, item_like_path(item.id)%>
+          <% end %>
+          <% else %> 
+        <% end %> 
           <%= link_to item_path(item.id) do %>
 
           <div class="card-image" style="background-image: url(<%= cl_image_path item.photo %>)">
@@ -35,9 +38,15 @@
               <h3><%= item.name %></h3>
 
               <div class="home-page-stars">
-                <% item.average_rating.times do %>
-                <i class="fas fa-star icon-stars-small"></i>
-                <% end %>
+                  <% if item.average_rating == 0 %>  
+                   <% 5.times do %>
+                    <i class="far fa-star icon-empty-stars"></i>
+                    <% end %> 
+                  <% else  %>
+                    <% item.average_rating.times do %>
+                    <i class="fas fa-star icon-stars"></i>
+                    <% end %> </h3>
+                  <% end %>
                 <i class="fas fa-comments icon-comments"> <%= item.total_reviews %></i>
               </div>
 
@@ -52,15 +61,29 @@
   <div class="cards-container">
     <% @items.first(5).each do |item| %>
     <div class="card">
+      <% if user_signed_in? %>
+        <% if current_user.voted_for? item %>
+          <%= link_to '<i class="fas fa-minus-square plus_and_minus_button"></i>'.html_safe, item_unlike_path(item.id)%> 
+        <% else %>    
+          <%= link_to '<i class="fas fa-plus-square plus_and_minus_button"></i>'.html_safe, item_like_path(item.id)%>
+        <% end %>
+      <% else %>
+      <% end %>
         <%= link_to item_path(item.id) do %>
           <div class="card-image" style="background-image: url(<%= cl_image_path item.photo %>)"></div>
         <% end %>
         <div class="card-description">
           <h3><%= item.name %></h3>
             <div class="home-page-stars">
-            <% item.average_rating.times do %>
-            <i class="fas fa-star icon-stars-small"></i>
-            <% end %>
+              <% if item.average_rating == 0 %>  
+               <% 5.times do %>
+                <i class="far fa-star icon-empty-stars"></i>
+                <% end %> 
+              <% else  %>
+                <% item.average_rating.times do %>
+                <i class="fas fa-star icon-stars"></i>
+                <% end %> </h3>
+              <% end %>
             <i class="fas fa-comments icon-comments"> <%= item.total_reviews %></i>
           </div>
           <p>Rent per day: <%= humanized_money_with_symbol(item.rental_price) %> <em>---  Buy it for: <%= humanized_money_with_symbol(item.buying_price) %></em></p>
@@ -85,9 +108,15 @@
         <% end %>
         <div class="card-description">
           <h3> <%= user.first_name %> from <%= user.address.split(",")[1] %>
-          <% user.average_rating.times do %>
-          <i class="fas fa-star icon-stars"></i>
-          <% end %> </h3>
+            <% if user.average_rating == 0 %>  
+             <% 5.times do %>
+              <i class="far fa-star icon-empty-stars"></i>
+              <% end %> 
+            <% else  %>
+              <% user.average_rating.times do %>
+              <i class="fas fa-star icon-stars"></i>
+              <% end %> </h3>
+            <% end %>
         </div>
       </div>
     <% end %>

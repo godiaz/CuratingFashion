@@ -1,3 +1,8 @@
+<% if mobile? %>
+<%= render 'mobile-show-user-listing' %>
+<% else %>
+
+
 <div class="container">
 
   <div class="items-div">
@@ -5,9 +10,12 @@
       <h1>My Listings</h1>
     </div>
     <div class="pages-add-icon">
-      <%= link_to '<i class="fas fa-plus"></i> add item'.html_safe, new_item_path(@item) %>
+      <%= link_to '<i class="fas fa-plus plus-icon"></i> add item'.html_safe, new_item_path(@item) %>
     </div>
   </div>
+    <div>
+      <%= link_to 'Request Photo Service', photoservice_path, class: "photo-service-link" %>
+    </div>
 
 
   <div class="items-and-calendar">
@@ -21,6 +29,7 @@
             <div class="item-counter text-center">
               <%= count %>
             </div>
+            
             <%= link_to item_path(item) do %>
               <div class="my-listing-card-image" style="background-image: url(<%= image_tag = item.photo %>)">
               </div>
@@ -41,13 +50,13 @@
               </div>
               <!-- <div style="margin-bottom: 10px;"> -->
 
-              <p> <span class="rent-price">£<%= item.rental_price %>/day </span><span class="buy-price"> | £<%= item.buying_price %> retail</span></p>
+              <p> <span class="rent-price">£<%= item.buying_price %></span></p>
               <!-- </div> -->
             </div>
 
             <div class="listing-status">
               <div class="listing-status-items">
-                <p>Booking status:</p>
+                <p>Purchase status:</p>
               </div>
 
               <% if item.bookings.map(&:status).include?("pending") %>
@@ -136,3 +145,4 @@
     });
   });
 </script>
+<% end %>
