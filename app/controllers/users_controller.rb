@@ -25,7 +25,6 @@ class UsersController < ApplicationController
 
   def show
     #already finds
-    @mechanize = Mechanize.new
     @available_items = Item.where("availability = ? AND user_id = ?", true, @user.id).count
   end
 

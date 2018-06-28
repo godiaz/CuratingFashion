@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'termsofservice', to: 'pages#termsofservice', as: :termsofservice
   get 'ppolicy', to: 'pages#ppolicy', as: :ppolicy
   get 'favorites', to: 'pages#favorites', as: :favorites
+  get 'photoservice', to: 'pages#photoservice', as: :photoservice
 
   devise_for :users
 
