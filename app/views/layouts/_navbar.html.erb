@@ -190,32 +190,37 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown" roll= "button"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-ufo-dropdown-menu">
 
-        <% if user_signed_in? %>
-        <li><%= link_to "Nearby Items", items_path %></li>
-        <li><%= link_to "Messages", conversations_path %></li>
-        <% if current_user.received_messages.any? { |m| !m.read } %>
-        <div class="dot"><i class="fas fa-circle message-circle"></i></div>
-      <% end %>
-      <li>
-        <%= link_to edit_user_path(current_user) do %>
-        <%= t(".", default: "Profile") %>
+          <% if user_signed_in? %>
+          <li><%= link_to "Nearby Items", items_path %></li>
+          <li><%= link_to "Messages", conversations_path %></li>
+          <% if current_user.received_messages.any? { |m| !m.read } %>
+          <div class="dot"><i class="fas fa-circle message-circle"></i></div>
         <% end %>
-      </li>
-      <li>
-        <%= link_to user_bookings_path(current_user)  do %>
-        <%= t(".", default: "My Bookings") %>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to user_listing_path do %>
-         <%= t(".", default: "My Listings") %>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to destroy_user_session_path, method: :delete do %>
-          <%= t(".", default: "Log Out") %>
-        <% end %>
-      </li>
+        <li>
+          <%= link_to edit_user_path(current_user) do %>
+          <%= t(".", default: "Profile") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to favorites_path(current_user) do %>
+            <%= t(".", default: "Favorites") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to user_bookings_path(current_user)  do %>
+          <%= t(".", default: "My Bookings") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to user_listing_path do %>
+           <%= t(".", default: "My Listings") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <%= t(".", default: "Log Out") %>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>

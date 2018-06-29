@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-content: flex-start;
   overflow-x: scroll;
   max-height: 316px;
   min-height: 316px;
@@ -34,7 +35,6 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-
 
 .mobile-user-show-avatar{
 	width: 60px;
