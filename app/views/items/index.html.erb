@@ -29,10 +29,6 @@
         <div><i class="fas fa-angle-down arrow-box hidden-sm hidden-md hidden-lg"></i></div>
         </div>
 
-        <div class="input-group-results size-button">
-          <%= text_field_tag 'start_date_search', as: :string, input_html: { id: "start_date_search" }, placeholder: "Choose dates" %>
-        </div>
-
         <%= hidden_field_tag :query , "", id: "query-filter" %>
         <%= hidden_field_tag :place , "", id: "place-filter" %>
 

@@ -31,6 +31,11 @@
 			        	  <% end %> </h3>
 			        	<% end %>
 			          <i class="fas fa-comments icon-comments"> <%= item.total_reviews %></i>
+			          <% if item.user.ig? %>
+			            <p>ig@<%= link_to item.user.ig , "https://www.instagram.com/#{item.user.ig}", class: "icon-comments" %></p>   
+			          <% else %>
+			            <p> No Username provided </p>
+			          <% end %> 
 			        </div>
 			        </div>
 			    </div>

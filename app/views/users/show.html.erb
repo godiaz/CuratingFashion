@@ -16,7 +16,7 @@
 		<div class="user-show-details-box">
 
 			<div class="user-show-names-box">
-				<h3><%= @user.first_name %> <%= @user.last_name %> (ig:@<%= link_to @user.ig , `https://www.instagram.com/#{@user.ig}` %>)</h3>
+				<h3><%= @user.first_name %> <%= @user.last_name %> (ig:@<%= link_to @user.ig , "https://www.instagram.com/#{@user.ig}" %>)</h3>
 				<h3><strong><%= @user.address.split(",")[1] %></strong>, <%=  @user.address.split(",")[2] %></h3>	
 			</div>
 			
