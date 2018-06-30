@@ -15,8 +15,8 @@
         <div class="card-image-index" style="background-image: url(<%= cl_image_path item.photo %>)"></div>
       <% end %>
       <div class="results-card-description">
-        <p class="margin-item-results-rent-price"> <strong>Rent per day: <%= humanized_money_with_symbol(item.rental_price) %></strong></p>
-        <p>Sell: <%= humanized_money_with_symbol(item.buying_price) %></p>
+        <p> <%= item.name %> /</p>
+        <p><strong>Price: <%= humanized_money_with_symbol(item.buying_price) %></strong></p>
       </div>
         <div class="item-results-ratings">
           <% if item.average_rating == 0 %>  

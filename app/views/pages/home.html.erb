@@ -50,7 +50,7 @@
                 <i class="fas fa-comments icon-comments"> <%= item.total_reviews %></i>
               </div>
 
-              <p>Rent per day: <%= humanized_money_with_symbol(item.rental_price) %> <em>---  Buy it for: <%= humanized_money_with_symbol(item.buying_price) %></em></p>
+              <p class="icon-comments"><em>---  Price:<%= humanized_money_with_symbol(item.buying_price) %> by: @<%= link_to item.user.ig , "https://www.instagram.com/#{item.user.ig}", class: "icon-comments" %>---</em></p>
 
           </div>
       </div>
@@ -86,7 +86,7 @@
               <% end %>
             <i class="fas fa-comments icon-comments"> <%= item.total_reviews %></i>
           </div>
-          <p>Rent per day: <%= humanized_money_with_symbol(item.rental_price) %> <em>---  Buy it for: <%= humanized_money_with_symbol(item.buying_price) %></em></p>
+          <p class="icon-comments"><em>---  Price:<%= humanized_money_with_symbol(item.buying_price) %> by: @<%= link_to item.user.ig , "https://www.instagram.com/#{item.user.ig}", class: "icon-comments" %>---</em></p>
         </div>
       </div>
     <% end %>
@@ -117,6 +117,11 @@
               <i class="fas fa-star icon-stars"></i>
               <% end %> </h3>
             <% end %>
+            <% if user.ig? %>
+              <p>@<%= link_to user.ig , "https://www.instagram.com/#{user.ig}", class: "icon-comments" %></p>   
+            <% else %>
+              <p> No Username provided </p>
+            <% end %>   
         </div>
       </div>
     <% end %>

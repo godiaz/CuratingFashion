@@ -43,7 +43,7 @@
 		<div class="mobile-user-name-and-button">
 			<div class="mobile-user-name-and-location">			
 				<p><%= @user.first_name %> <%= @user.last_name %></p>
-				<%= link_to @user.ig , `https://www.instagram.com/#{@user.ig}` %>
+				<%= link_to @user.ig , "https://www.instagram.com/#{@user.ig}" %>
 				<p><strong><%= @user.address.split(",")[1] %></strong>, <%=  @user.address.split(",")[2] %></p>
 			</div>
 
