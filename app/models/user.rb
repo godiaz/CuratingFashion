@@ -21,6 +21,7 @@ class User < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  after_commit :send_contat_form, only: :create 
 
   def average_rating
     if items.map(&:reviews).flatten.count == 0
@@ -38,6 +39,10 @@ class User < ApplicationRecord
       return average
     end
 
+  end
+
+  def send_contact_form
+    UserMailer.send_contact_form(self)
   end
 
 end

@@ -105,13 +105,13 @@ class ItemsController < ApplicationController
   def like
     item = Item.find(params['item_id'])
     item.liked_by current_user
-    redirect_to items_path
+    redirect_back fallback_location: root_path
   end
 
   def unlike
     item = Item.find(params['item_id'])
     item.unliked_by current_user
-    redirect_to items_path
+    redirect_back fallback_location: root_path
   end
 
   def update

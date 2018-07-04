@@ -1,3 +1,89 @@
+
+// MOBILE VERSION
+
+.user_listing-mobile-container{
+  height: 600px;
+  padding: 15px 10px;
+}
+
+.mobile-my-listing-title {
+  h1 {
+    align-items: center;
+    margin: 10px 0px;
+    font-family: 'Heebo', sans-serif;
+    font-weight: lighter;
+    font-size: 24px;
+    margin-right: 8px;
+  }
+}
+
+.add-item-btn{
+  border-radius: 15px;
+  background: #616675;
+  color: white !important;
+  height: 35px;
+  width: 120px;
+  padding: 10px;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.mobile-user-listing-flex-cards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.items-and-calendar {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.mobile-my-listing-card-image {
+  height: 80px;
+  min-width: 90px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  border-radius: 2px;
+}
+
+.mobile-user-listings-card{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 8px;
+  padding: 10px 5px 10px 5px;
+  transition: .3s;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #f2f2f2;
+  border-radius: 4px;
+  width: 150px;
+  height: 190px;
+}
+
+.mobile-card-description {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-user-listing-deletedit-btn{
+  margin: 10px 0px;
+  background-color: #eeeeee;
+  text-align: center;
+  font-size: 9px;
+  color: white;
+  padding: 5px;
+  border-radius: 8px;
+  opacity: 1.0 !important;
+}
+
+
+// ###################################################
+
 .items-div {
   display: flex;
   align-items: center;
@@ -14,6 +100,20 @@
   position: absolute;
   top: -1;
   margin: 5px 5px;
+}
+
+.plus-icon{
+  font-size: 12px;
+}
+
+.plus-icon:hover{
+  color: #fd9ab9;
+  opacity: 0.6;
+}
+
+.photo-service-link:hover{
+ text-decoration: none;
+ color: #fd9ab9;
 }
 
 .add-item {
@@ -123,9 +223,10 @@
 }
 
 .js-click {
-  color: #d3d3d4;
+  font-size: 11px;
+  color: black;
   z-index: 5; position:relative;
-  margin: 0px 0px;
+  margin: 3px 0px;
 }
 
 .js-click:hover {

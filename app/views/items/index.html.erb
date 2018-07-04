@@ -25,14 +25,9 @@
 
         <div class="size-button">
           <%= select_tag "color", options_for_select(@colors), include_blank: "Colour", input_html: {class: 'filter-btn'} %>
-          <div><i class="fas fa-angle-down arrow-box hidden-sm hidden-md hidden-lg"></i></div>
-        </div>
 
-        <!--  Flatpicker below -->
-        <!--   <div class="input-group-results size-button">
-            <%#= text_field_tag 'start_date_search', as: :string, input_html: { id: "start_date_search" }, placeholder: "Choose dates" %>
-          </div>
-        -->
+        <div><i class="fas fa-angle-down arrow-box hidden-sm hidden-md hidden-lg"></i></div>
+        </div>
         <%= hidden_field_tag :query , "", id: "query-filter" %>
         <%= hidden_field_tag :place , "", id: "place-filter" %>
 

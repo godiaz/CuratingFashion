@@ -1,0 +1,65 @@
+<div class="user_listing-mobile-container">
+
+  <div class="items-div">
+    <div class="mobile-my-listing-title">
+      <h1>My Listings</h1>
+    </div>
+  </div>
+    <div>
+    	<%= link_to 'add item'.html_safe, new_item_path(@item), class: "add-item-btn" %>
+      	<%= link_to 'Request Photo Service', photoservice_path, class: "add-item-btn" %>
+    </div>
+
+      <div class="items-and-calendar">
+        <div class="mobile-user-listing-flex-cards">
+          <% @items.each do |item| %>
+              <div class="mobile-user-listings-card mw">
+  
+                <%= link_to item_path(item) do %>
+                  <div class="mobile-my-listing-card-image" style="background-image: url(<%= image_tag = item.photo %>)">
+                  </div>
+                <% end %>
+                <div class="mobile-card-description">
+     
+                    <%= link_to item_path(item), method: :delete do %>
+                      <p class="js-click mobile-user-listing-deletedit-btn">DELETE</p>
+                    <% end %>
+                    <%= link_to edit_item_path(item) do %>
+                      <p class="js-click mobile-user-listing-deletedit-btn">EDIT</p>
+                    <% end %>
+   					
+                </div>
+
+                <div class="listing-status">
+                  <div class="listing-status-items">
+                    <p>Status:</p>
+                  </div>
+
+                  <% if item.bookings.map(&:status).include?("pending") %>
+                    <div class="item-status"><p class="orange listing-status-items">Requested</p></div>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-<%= item.id %>">
+                      <i data-calendar-id="<%= item.id %>"class="far fa-calendar-plus"></i>
+                    </button>
+                  <% elsif item.bookings.map(&:status).include?("accepted") %>
+                    <div class="item-status"><p class="green listing-status-items">Booked</p></div>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-<%= item.id %>">
+                      <i data-calendar-id="<%= item.id %>"class="far fa-calendar-plus"></i>
+                    </button>
+                  <% elsif item.bookings.map(&:status).include?("pending & booked") %>
+                    <div class="item-status"><p class="orange listing-status-items">Requested</p></div>
+                    <div class="item-status"><p class="green listing-status-items">Booked</p></div>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-<%= item.id %>">
+                      <i data-calendar-id="<%= item.id %>"class="far fa-calendar-plus"></i>
+                    </button>
+                    <% elsif item.bookings.map(&:status).include?("declined") %>
+                    <div class="item-status"><p class="red listing-status-items">Declined</p></div>
+                  <% else %>
+                   <%# leave this line in case we cadd more scenarios %>
+                  <% end %>
+                </div>
+              </div>
+
+          <% end %>
+        </div>
+      </div>
+    </div>

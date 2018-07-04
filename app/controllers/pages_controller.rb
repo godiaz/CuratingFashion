@@ -51,4 +51,8 @@ class PagesController < ApplicationController
     @user_items = Item.where(user: current_user)
   end
 
+  def favorites
+    @user = current_user
+  end
+
 end

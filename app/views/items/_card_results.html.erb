@@ -1,29 +1,33 @@
 <% items.each do |item| %>
   <div class="col-xs-12 col-sm-6 col-md-4">
     <div class="card-image-results">
-
-    <% if current_user.voted_for? item %>
-      <%= link_to item_unlike_path(item.id) do %> 
-        <i class="fas fa-minus"></i>
-       <% end %>
-    <% else %>    
-      <%= link_to item_like_path(item.id) do %> 
-        <i class="fas fa-plus-square"></i>
-       <% end %>
+    
+    <% if user_signed_in? %>
+      <% if current_user.voted_for? item %>
+        <%= link_to '<i class="fas fa-minus-square plus_and_minus_button"></i>'.html_safe, item_unlike_path(item.id)%> 
+      <% else %>    
+        <%= link_to '<i class="fas fa-plus-square plus_and_minus_button"></i>'.html_safe, item_like_path(item.id)%>
+      <% end %>
+    <% else %>
     <% end %>
-
 
       <%= link_to item_path(item.id) do %>
         <div class="card-image-index" style="background-image: url(<%= cl_image_path item.photo %>)"></div>
       <% end %>
       <div class="results-card-description">
-        <p class="margin-item-results-rent-price"> <strong>Rent per day: <%= humanized_money_with_symbol(item.rental_price) %></strong></p>
-        <p>Sell: <%= humanized_money_with_symbol(item.buying_price) %></p>
+        <p> <%= item.name %> /</p>
+        <p><strong>Price: <%= humanized_money_with_symbol(item.buying_price) %></strong></p>
       </div>
         <div class="item-results-ratings">
-        <% item.average_rating.times do %>
-        <i class="fas fa-star icon-stars"></i>
-        <% end %>
+          <% if item.average_rating == 0 %>  
+           <% 5.times do %>
+            <i class="far fa-star icon-empty-stars"></i>
+            <% end %> 
+          <% else  %>
+            <% item.average_rating.times do %>
+            <i class="fas fa-star icon-stars"></i>
+            <% end %> </h3>
+          <% end %>
           <i class="fas fa-comments icon-comments"> <%= item.total_reviews %></i>
         </div>
     </div>
