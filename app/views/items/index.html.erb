@@ -1,6 +1,5 @@
 <div class="container-results-main">
   <div class="container-min-height" style="min-height: 700px">
-
   <!-- 1) search bar -->
     <%= form_tag items_path, remote: true, method: :get do %>
       <div class="custom-inline-form">
@@ -11,28 +10,29 @@
 
         <div class="size-button">
           <%= select_tag "category", options_for_select(@categories), include_blank: "Category", input_html: {class: 'filter-btn'} %>
-        <div><i class="fas fa-angle-down arrow-box hidden-sm hidden-md hidden-lg"></i></div>
+          <div><i class="fas fa-angle-down arrow-box hidden-sm hidden-md hidden-lg"></i></div>
         </div>
 
         <div class="size-button">
           <%= select_tag "rental_price_cents", options_for_select(@prices), include_blank: "Rent price", input_html: {class: 'filter-btn'} %>
-        <div><i class="fas fa-angle-down arrow-box hidden-sm hidden-md hidden-lg"></i></div>
+          <div><i class="fas fa-angle-down arrow-box hidden-sm hidden-md hidden-lg"></i></div>
         </div>
 
         <div class="size-button">
           <%= select_tag "buying_price_cents", options_for_select(@prices), include_blank: "Buy price", input_html: {class: 'filter-btn'} %>
-        <div><i class="fas fa-angle-down arrow-box hidden-sm hidden-md hidden-lg"></i></div>
+          <div><i class="fas fa-angle-down arrow-box hidden-sm hidden-md hidden-lg"></i></div>
         </div>
 
         <div class="size-button">
           <%= select_tag "color", options_for_select(@colors), include_blank: "Colour", input_html: {class: 'filter-btn'} %>
-        <div><i class="fas fa-angle-down arrow-box hidden-sm hidden-md hidden-lg"></i></div>
+          <div><i class="fas fa-angle-down arrow-box hidden-sm hidden-md hidden-lg"></i></div>
         </div>
 
-        <div class="input-group-results size-button">
-          <%= text_field_tag 'start_date_search', as: :string, input_html: { id: "start_date_search" }, placeholder: "Choose dates" %>
-        </div>
-
+        <!--  Flatpicker below -->
+        <!--   <div class="input-group-results size-button">
+            <%#= text_field_tag 'start_date_search', as: :string, input_html: { id: "start_date_search" }, placeholder: "Choose dates" %>
+          </div>
+        -->
         <%= hidden_field_tag :query , "", id: "query-filter" %>
         <%= hidden_field_tag :place , "", id: "place-filter" %>
 

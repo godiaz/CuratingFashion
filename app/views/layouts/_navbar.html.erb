@@ -59,6 +59,13 @@
             <i class="fas fa-user-alt"></i>  <%= t(".", default: "Profile") %>
             <% end %>
           </li>
+
+          <li>
+            <%= link_to user_bookings_path(current_user)  do %>
+            <i class="fas fa-shopping-bag"></i> <%= t(".", default: "My purchases") %>
+            <% end %>
+          </li>
+
           <li>
             <%= link_to user_bookings_path(current_user)  do %>
             <i class="fas fa-shopping-bag"></i> <%= t(".", default: "My Bookings") %>

@@ -5,13 +5,6 @@ class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-
-    # if browser.mobile?
-    #   render 'mobile_profile'
-    #   else
-    #   render 'profile'
-    # end
-
     @item = Item.new
     @bookings = Booking.all
     @location = request.location.data['city']
@@ -70,6 +63,7 @@ class ItemsController < ApplicationController
     else
       @items = Item.includes(:user).where(user_id: near_items.map(&:id))
     end
+
     @markers = @items.map do |item|
       {
         lat: item.user.latitude,
@@ -84,6 +78,11 @@ class ItemsController < ApplicationController
       format.js
     end
 
+    # if browser.mobile?
+    #   render 'mobile_profile'
+    #   else
+    #   render 'profile'
+    # end
   end
 
   def new
@@ -101,7 +100,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-
   end
 
   def like
@@ -156,11 +154,11 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :description, :rental_price, :buying_price, :size, :availability, :rental_only, :photo, :category, :color, :average_rating, :item_id)
+    params.require(:item).permit(:name, :description, :rental_price, :buying_price, :size, :availability, :rental_only, :photo, :category, :color, :average_rating, :item_id, :tags)
   end
 
   def form_tag_params
-     params.permit(:rental_price_cents, :buying_price_cents, :size, :color, :start_date, :end_date)
+     params.permit(:rental_price_cents, :buying_price_cents, :size, :color, :start_date, :end_date, :photo)
   end
 
   def set_variables
