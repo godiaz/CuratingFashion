@@ -121,9 +121,28 @@
 	display: flex;
 }
 
+.form-inputs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.sign-up-image-edit {
+  width: 100%;
+  border-radius: 3px;
+  opacity: 0.8;
+}
+
 .edit-user-name-and-email{
 	display: flex;
 	flex-direction: column;
+  margin: 0px 10px;
+}
+
+.edit-user-photo{
+  display: flex;
+  flex-direction: column;
+  margin: 0px 10px !important;
 }
 
 .edit-user-other{

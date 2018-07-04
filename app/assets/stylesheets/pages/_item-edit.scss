@@ -1,0 +1,40 @@
+.tagsname {
+  color: black;
+  height: 25px;
+  width: 240px;
+  border-radius: 6px !important;
+  border: 1px solid #ccc;
+  font-size: 12px;
+  padding-left: 5px;
+}
+
+.addingtags {
+  margin: 20px;
+}
+
+.btn-edit {
+    display: inline-block;
+    margin: 10px 10px;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 2px 0px;
+    font-size: 10px;
+    line-height: 1.428571429;
+    border-radius: 2px;
+    user-select: none;
+}
+
+
+.container-edit {
+  min-height: 80vh;
+  h2 {
+    font-size: 28px;
+    font-weight: bold;
+  }
+}
+

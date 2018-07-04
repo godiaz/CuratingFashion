@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   acts_as_votable
   belongs_to :user
   has_many :orders, dependent: :destroy
+  has_many :photos, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :reviews,  dependent: :destroy
   validates :name, presence: true
@@ -16,13 +17,11 @@ class Item < ApplicationRecord
   monetize :buying_price_cents
   include PgSearch
 
-
   pg_search_scope :global_search,
     against: [ :name, :description ],
     using: {
     tsearch: { prefix: true }
     }
-
 
   def average_rating
     if reviews.count == 0

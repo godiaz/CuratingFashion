@@ -1,35 +1,55 @@
-<div class="container">
-  <%= link_to 'back', items_path %>
+<div class="container-edit">
   <div class="sign-up-details-container">
     <%= simple_form_for item do |f| %>
       <div class="details-container">
         <div class="form-inputs">
-          <div class="edit-user-name-and-email">
-            <%= f.input :name, input_html: { class: "input-bar" } %>
-            <%= f.input :description, input_html: { class: "input-bar"} %>
-          </div>
-          <div class="edit-user-name-and-email">
-            <%= f.input :rental_price, :label => "Rental Price", input_html: { class: "input-bar" } %>
-            <%= f.input :buying_price, :label => "Buying Price", input_html: { class: "input-bar" } %>
-          </div>
-          <div class="edit-user-name-and-email">
-            <%= f.input :size, :as => :select, collection: ["XS", "S", "M", "L", "XL"], label: false, include_blank: "Size", input_html: { class: "input-bar" } %>
-            <%= f.input :color, :as => :select, collection: ["Red", "Green", "Blue", "Black", "White", "Yellow", "Pink"], label: false, include_blank: "Color", input_html: { class: "input-bar" } %>
-            <%= f.input :category, :as => :select, collection: ["Jacket", "Shirt", "Coat", "Trousers", "Dress"], label: false, include_blank: "Category", input_html: { class: "input-bar" } %>
-          </div>
+          <div class="photo-change">
+            <div class="details-container-two">
+              <%= cl_image_tag @item.photo, class: "sign-up-image-edit"%>
+            </div>
 
-          <div class="edit-user-name-and-email">
-            <%= f.input :photo, input_html: { class: "input-bar" } %>
-            <%= f.input :photo_cache, as: :hidden %>
+            <div class="edit-user-photo">
+              <%= f.input :photo, input_html: { class: "input-bar" } %>
+              <%= f.input :photo_cache, as: :hidden %>
+            </div>
           </div>
-          <div class="form-actions btn input-btn">
-            <input type="submit" name="commit" class="input-btn-ontop">
+          <div class="edit-form-div1">
+            <div class="edit-user-name-and-email">
+              <%= f.input :name, input_html: { class: "input-bar" } %>
+              <%= f.input :description, input_html: { class: "input-bar"} %>
+            </div>
+            <div class="edit-user-name-and-email">
+              <%= f.input :rental_price, :label => "Rental Price", input_html: { class: "input-bar" } %>
+              <%= f.input :buying_price, :label => "Buying Price", input_html: { class: "input-bar" } %>
+            </div>
+            <div class="edit-user-name-and-email">
+              <%= f.input :size, :as => :select, collection: ["XS", "S", "M", "L", "XL"], label: false, include_blank: "Size", input_html: { class: "input-bar" } %>
+              <%= f.input :color, :as => :select, collection: ["Red", "Green", "Blue", "Black", "White", "Yellow", "Pink"], label: false, include_blank: "Color", input_html: { class: "input-bar" } %>
+              <%= f.input :category, :as => :select, collection: ["Jacket", "Shirt", "Coat", "Trousers", "Dress"], label: false, include_blank: "Category", input_html: { class: "input-bar" } %>
+            </div>
+            <!-- adding tags -->
+            <div class="edit-user-name-and-email">
+              <input type="text" placeholder="enter tags" data-role="tagsinput" class="tagsname" />
+            </div>
           </div>
         </div>
+          <div class="form-actions btn-edit">
+            <input type="submit" name="commit" class="input-btn-ontop">
+          </div>
       </div>
     <% end %>
-    <div class="details-container-two">
-      <%= image_tag "https://images.pexels.com/photos/905247/pexels-photo-905247.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", class: "sign-up-image hidden-xs"%>
-    </div>
+
   </div>
+
 </div>
+
+
+<script>
+$('input').tagsinput({
+  typeahead: {
+    source: function(query) {
+      return $.getJSON('tags.json');
+    }
+  }
+});
+</script>
