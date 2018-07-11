@@ -1,0 +1,5 @@
+<% if current_user.voted_for? item %>
+  <%= link_to '<i class="fas fa-minus-square plus_and_minus_button"></i>'.html_safe, item_unlike_path(item), remote: true %> 
+<% else %>    
+  <%= link_to '<i class="fas fa-plus-square plus_and_minus_button"></i>'.html_safe, item_like_path(item), remote: true %>
+<% end %>

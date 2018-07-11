@@ -20,11 +20,9 @@
     <% @items.last(5).each do |item| %>
       <div class="card">
         <% if user_signed_in? %>
-          <% if current_user.voted_for? item %>
-            <%= link_to '<i class="fas fa-minus-square plus_and_minus_button"></i>'.html_safe, item_unlike_path(item.id)%> 
-          <% else %>    
-            <%= link_to '<i class="fas fa-plus-square plus_and_minus_button"></i>'.html_safe, item_like_path(item.id)%>
-          <% end %>
+          <div id="favorites-div-<%= item.id %>">
+            <%= render 'votes', item: item %>
+          </div>
           <% else %> 
         <% end %> 
           <%= link_to item_path(item.id) do %>
