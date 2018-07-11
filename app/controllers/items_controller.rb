@@ -104,17 +104,27 @@ class ItemsController < ApplicationController
 
   end
 
-  def like
-    item = Item.find(params['item_id'])
-    item.liked_by current_user
-    redirect_back fallback_location: root_path
-  end
+    def like
+      @item = Item.find(params['item_id'])
+      @item.liked_by current_user
 
-  def unlike
-    item = Item.find(params['item_id'])
-    item.unliked_by current_user
-    redirect_back fallback_location: root_path
-  end
+      respond_to do |format|
+        format.html { redirect_back fallback_location: root_path }
+        format.js
+      end
+    end
+
+    def unlike
+      @item = Item.find(params['item_id'])
+      @item.unliked_by current_user
+      
+
+      respond_to do |format|
+        format.html { redirect_back fallback_location: root_path }
+        format.js
+      end
+
+    end
 
   def update
     @item.update(item_params)
