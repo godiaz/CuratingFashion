@@ -8,7 +8,7 @@
 
 users = User.create( first_name: "Gonzalo", last_name: "Diaz", email: "gonzalodiaz000@gmail.com", address: "19 Pitfield Street", password: 'gonzalo1234' , password_confirmation: 'gonzalo1234' )
 
-admin=User.new({ email: 'gonzalodiaz000@gmail.com',
+admin = User.new({ email: 'gonzalodiaz@gmail.com',
            password: 'gonzalo1234', password_confirmation: 'gonzalo1234'})
 
 admin.toggle!(:admin)
