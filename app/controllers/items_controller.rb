@@ -108,8 +108,9 @@ class ItemsController < ApplicationController
 
       respond_to do |format|
         format.html { redirect_back fallback_location: root_path }
-        format.js
+        format.js  
       end
+      flash[:notice] = 'Your item has been added to Favorites'
     end
 
     def unlike
@@ -121,7 +122,7 @@ class ItemsController < ApplicationController
         format.html { redirect_back fallback_location: root_path }
         format.js
       end
-
+      flash[:notice] = 'Your item has been added to Favorites'  
     end
 
   def update
