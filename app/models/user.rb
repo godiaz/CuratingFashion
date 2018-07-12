@@ -41,6 +41,10 @@ class User < ApplicationRecord
 
   end
 
+  def admin?
+    has_role?(:admin)
+  end
+
   def send_contact_form
     UserMailer.send_contact_form(self)
   end
