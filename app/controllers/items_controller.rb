@@ -1,68 +1,74 @@
 class ItemsController < ApplicationController
+  
+  
   before_action :authenticate_user!, :except => [:show, :index]
   before_action :set_item, only: [:edit, :show, :update, :destroy]
   before_action :set_variables, only: [:new, :index, :edit]
   skip_before_action :authenticate_user!, only: [:index]
 
+
+  
+
   def index
-    @item = Item.new
-    @bookings = Booking.all
-    @location = request.location.data['city']
-    if @location.empty?
-      if params[:place].present?
-        @user_location = params[:place]
-      else
-        @user_location = "London UK"
-      end
-    else
-      if params[:place].present?
-        @user_location = params[:place]
-      else
-        @user_location = request.location.data['loc'].split(',')
-      end
-    end
+    @items = Item.filter(params.slice(:category, :color, :starts_with))
+    # @item = Item.new
+    # @bookings = Booking.all
+    # @location = request.location.data['city']
+    # if @location.empty?
+    #   if params[:place].present?
+    #     @user_location = params[:place]
+    #   else
+    #     @user_location = "London UK"
+    #   end
+    # else
+    #   if params[:place].present?
+    #     @user_location = params[:place]
+    #   else
+    #     @user_location = request.location.data['loc'].split(',')
+    #   end
+    # end
 
-    @show_clear = params[:controller] == 'items' && params[:action] == 'index'
+    # @show_clear = params[:controller] == 'items' && params[:action] == 'index'
 
-    near_items = User.near(@user_location, 15)
+    # near_items = User.near(@user_location, 15)
 
-    any_field_from_form = !params[:size].blank? || !params[:buying_price_cents].blank? || !params[:rental_price_cents].blank? || !params[:color].blank?
-    date_param = params[:start_date_search].present? && params[:start_date_search].include?('to')
-    # both search in nav and filter in index
-    nearby_items = Item.includes(:user).where(user_id: near_items.map(&:id))
+    # any_field_from_form = !params[:size].blank? || !params[:buying_price_cents].blank? || !params[:rental_price_cents].blank? || !params[:color].blank?
+    # date_param = params[:start_date_search].present? && params[:start_date_search].include?('to')
+    # # both search in nav and filter in index
+    # nearby_items = Item.includes(:user).where(user_id: near_items.map(&:id))
 
-    if params[:query].present? && any_field_from_form && date_param
-      items_searched = Item.global_search(params[:query])
-      items_filtered = Item.filter(params)
-      start_date = Date.parse(params[:start_date_search].split("to").first)
-      end_date = Date.parse(params[:start_date_search].split("to").last)
-      filtered_by_date = Item.filter_dates(start_date, end_date)
-      @items = items_searched & items_filtered & filtered_by_date & nearby_items
-    # only search in nav
-    elsif params[:query].present? && any_field_from_form
-      items_searched = Item.global_search(params[:query])
-      items_filtered = Item.filter(params)
-      @items = items_searched & items_filtered & nearby_items
-    # only search in nav
-    elsif date_param && any_field_from_form
-      start_date = Date.parse(params[:start_date_search].split("to").first)
-      end_date = Date.parse(params[:start_date_search].split("to").last)
-      filtered_by_date = Item.filter_dates(start_date, end_date)
-      items_filtered = Item.filter(params)
-      @items = filtered_by_date & items_filtered & nearby_items
-    elsif params[:query].present?
-      @items = Item.global_search(params[:query]) & nearby_items
-    # only filters
-    elsif any_field_from_form
-      @items = Item.filter(params) & nearby_items
-    # none
-    elsif date_param
-      start_date = Date.parse(params[:start_date_search].split("to").first)
-      end_date = Date.parse(params[:start_date_search].split("to").last)
-      @items = Item.filter_dates(start_date, end_date) & nearby_items
-    else
-      @items = Item.includes(:user).where(user_id: near_items.map(&:id))
-    end
+    # if params[:query].present? && any_field_from_form && date_param
+    #   items_searched = Item.global_search(params[:query])
+    #   items_filtered = Item.filter(params)
+    #   start_date = Date.parse(params[:start_date_search].split("to").first)
+    #   end_date = Date.parse(params[:start_date_search].split("to").last)
+    #   filtered_by_date = Item.filter_dates(start_date, end_date)
+    #   @items = items_searched & items_filtered & filtered_by_date & nearby_items
+    # # only search in nav
+    # elsif params[:query].present? && any_field_from_form
+    #   items_searched = Item.global_search(params[:query])
+    #   items_filtered = Item.filter(params)
+    #   @items = items_searched & items_filtered & nearby_items
+    # # only search in nav
+    # elsif date_param && any_field_from_form
+    #   start_date = Date.parse(params[:start_date_search].split("to").first)
+    #   end_date = Date.parse(params[:start_date_search].split("to").last)
+    #   filtered_by_date = Item.filter_dates(start_date, end_date)
+    #   items_filtered = Item.filter(params)
+    #   @items = filtered_by_date & items_filtered & nearby_items
+    # elsif params[:query].present?
+    #   @items = Item.global_search(params[:query]) & nearby_items
+    # # only filters
+    # elsif any_field_from_form
+    #   @items = Item.filter(params) & nearby_items
+    # # none
+    # elsif date_param
+    #   start_date = Date.parse(params[:start_date_search].split("to").first)
+    #   end_date = Date.parse(params[:start_date_search].split("to").last)
+    #   @items = Item.filter_dates(start_date, end_date) & nearby_items
+    # else
+    #   @items = Item.includes(:user).where(user_id: near_items.map(&:id))
+    # end
 
     @markers = @items.map do |item|
       {
@@ -77,12 +83,6 @@ class ItemsController < ApplicationController
       format.html { render 'items/index' }
       format.js
     end
-
-    # if browser.mobile?
-    #   render 'mobile_profile'
-    #   else
-    #   render 'profile'
-    # end
   end
 
   def new
